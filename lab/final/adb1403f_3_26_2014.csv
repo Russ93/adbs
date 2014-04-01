@@ -1,0 +1,14 @@
+_id,address,city,name,state,type,category,vendor
+"applaro",,,"Applaro",,"product","Furniture","IKEA"
+"falster",,,"Falster",,"product","Furniture","IKEA"
+"gocalendars","451 E Altamonte Dr","Altamonte Springs","Go! Calendars","FL","vendor",,
+"ikea","4092 Eastgate Drive","Orlando","IKEA","FL","vendor",,
+"microsoftcorporation","One Microsoft Way","Redmond","Microsoft Corporation","WA","vendor",,
+"microsoftmouse",,,"Microsoft Mouse",,"product","Electronic","Microsoft Corporation"
+"microsoftsurface",,,"Microsoft Surface",,"product","Electronic","Microsoft Corporation"
+"pro9000",,,"Pro9000",,"product","Electronic","ViewSonic Corporation"
+"viewsoniccorporation","381 Brea Canyon, Road","Walnut","ViewSonic Corporation","CA","vendor",,
+"vt4200l",,,"VT4200-L",,"product","Electronic","ViewSonic Corporation"
+"xbox360",,,"Xbox 360",,"product","Electronic","Microsoft Corporation"
+"xboxone",,,"Xbox One",,"product","Electronic","Microsoft Corporation"
+"zune",,,"Zune",,"product","Electronic","Microsoft Corporation"

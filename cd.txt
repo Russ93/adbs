@@ -1,0 +1,182 @@
+cd 
+get add .
+get commit -m date
+get pull
+get push
+
+
+-- Question 1-4
+select count(*) from log_all;
+
+-- Question 1
+alter table log_clients
+add primary key (id);
+
+-- Quesrion 2
+alter table log_areas
+add unique (id);
+alter table log_clients
+add unique (id);
+alter table log_pages
+add unique (id);
+alter table log_referers
+add unique (id);
+
+-- Question 3
+alter table log_pages
+add index (filetype);
+
+-- Question 4
+alter table log_hits
+add constraint hit_info primary key (hit_date, hit_time, hit_ms);
+
+-- Question 5
+alter table log_hits
+add foreign key (page_id)
+references log_pages(id);
+
+alter table log_hits
+add foreign key (client_id)
+references log_clients(id);
+
+alter table log_hits
+add foreign key (referer_id)
+references log_referers(id);
+
+-- Question 6
+insert into log_areas
+(area)
+select site_area
+from log_all
+where site_area is not null
+group by site_area;
+
+-- Question 7
+insert into log_referers (referer)
+select referer
+from log_all
+where referer is not null
+group by referer;
+
+-- Question 8
+insert into log_pages (page, filetype)
+select uri_stem, file_type
+from log_all
+where file_type is not NULL
+and file_type != ''
+and uri_stem is not null
+and uri_stem != ''
+group by uri_stem;
+
+-- Question 9
+insert into log_clients (id, client_ip)
+select distinct INET_ATON(ip_client) as ipNum, ip_client
+from log_all
+group by ipNum;
+
+-- Question 10
+insert into log_hits (hit_date, hit_time, hit_ms, method, page_id, uri_query, client_id, http_version, user_agent, referer_id, bytes_sent, bytes_rcvd, time_ms, area_id)
+select hit_date, hit_time, hit_ms, method, log_pages.id, uri_query, log_clients.id, http_version, user_agent, log_referers.id, bytes_sent, bytes_rcvd, time_ms, log_areas.id
+from log_all
+left join log_pages on uri_stem = page
+left join log_clients on ip_client = client_ip
+left join log_referers on log_all.referer = log_referers.referer
+left join log_areas on site_area = area;
+
+-- Question 11
+CREATE VIEW log_scripts as
+SELECT id, page, filetype
+FROM log_pages
+WHERE filetype = 'php'
+OR filetype = 'cfm';
+
+-- Question 12
+CREATE VIEW log_script_hits as
+SELECT hit_date, hit_time, hit_ms, method, page_id, uri_query, client_id, http_version, user_agent, referer_id, bytes_sent, bytes_rcvd, time_ms, area_id
+FROM log_hits
+INNER join log_scripts on log_hits.page_id = log_scripts.id;
+
+-- Question 13
+select page, count(page_id) as hit
+from log_script_hits
+join log_pages on log_script_hits.page_id = log_pages.id
+group by page_id
+order by hit desc
+LIMIT 1;
+
+-- Question 14
+SELECT page, count(page_id) as hit
+	FROM log_script_hits
+	JOIN log_pages on log_script_hits.page_id = 	log_pages.id
+	WHERE log_pages.filetype = 'cfm'
+	GROUP by page_id
+	ORDER by hit desc
+	LIMIT 1;
+
+-- Question 15
+SELECT page, count(page_id) as hit, avg(time_ms) as avgTime, min(time_ms) as minTime, max(time_ms) as maxTime, sum(time_ms) as totalTime
+FROM log_script_hits
+JOIN log_pages on log_script_hits.page_id = log_pages.id
+WHERE log_pages.filetype = 'cfm'
+group by page_id
+order by hit desc
+LIMIT 1;
+
+-- Question 16
+
+SELECT page, count(page_id) as hit, avg(time_ms) as avgTime, min(time_ms) as minTime, max(time_ms) as maxTime, sum(time_ms) as totalTime
+FROM log_script_hits
+JOIN log_pages on log_script_hits.page_id = log_pages.id
+WHERE log_pages.filetype = 'cfm'
+having hit >= 5;
+
+
+-- Question 17
+SELECT page, count(page_id) as hit, log_areas.area
+FROM log_script_hits
+JOIN log_pages on log_script_hits.page_id = log_pages.id
+LEFT JOIN log_areas on log_script_hits.area_id = log_areas.id
+GROUP by log_areas.area
+ORDER by area;
+
+-- Question 18
+SELECT page, count(page_id) as hits, area, area_id
+FROM log_script_hits
+JOIN log_pages on log_script_hits.page_id = log_pages.id
+LEFT JOIN (
+	SELECT id, area
+	FROM log_areas
+) as areas on log_script_hits.area_id = areas.id
+GROUP by area
+ORDER by area;
+
+-- Question 19
+SELECT page, area_id, count(page_id) as hits, (
+	SELECT area
+	FROM log_areas
+	WHERE id = area_id
+) as areas
+FROM log_script_hits
+JOIN log_pages on log_script_hits.page_id = log_pages.id
+GROUP by areas
+ORDER by areas;
+
+-- Question 20
+SELECT page, area_id, count(page_id) as hits, (
+	SELECT area
+	FROM log_areas
+	WHERE id = area_id
+) as areas
+FROM log_script_hits
+JOIN log_pages on log_script_hits.page_id = log_pages.id
+GROUP by areas
+having hits > 0;
+
+-- Question 21
+select n, (
+	SELECT count(*)
+	FROM log_hits
+	where hit_ms < n
+	and hit_ms > n-100
+) as hitCount
+from numbers1000;

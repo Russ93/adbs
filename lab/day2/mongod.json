@@ -1,0 +1,58 @@
+// Artist
+{
+    "_id": "artist:youngmoney",
+    "Artist": "Young Money",
+    "type": "artist",
+    "tracks": ["track:19f80097823015d3", "track:26196dd554e276ce", "track:df77581f454a7d9a", "track:f38a8595b1bdf89f", "track:0f428cefd54cb61c", "track:17e92c70c9b68a2c", "track:439cb6f912f8f132", "track:6d2ed07ba5f7a215", "track:4b4383c91e3e9c25", "track:93fce87652b0f5d7", "track:6e2eb5a323bb9fd5", "track:fbdd9480a6b52e82", "track:2d7ac096a89ec1f3", "track:3c865e0479ee912b", "track:1c8d4eade8e26e60"],
+    "albums": ["album:weareyoungmoney"]
+}
+
+// Albums
+{
+    "_id": "album:farawayfeatchrisrichardsonsingle",
+    "Album": "Far Away (Feat. Chris Richardson) - Single",
+    "type": "album",
+    "tracks": ["track:bc5d94763a9a5147"]
+}
+
+// Tracks
+{
+    "_id": "track:c96bd4cf74b666ab",
+    "PlayCount": 1,
+    "AlbumArtist": "Kanye West",
+    "SkipDate": [2013, 7, 3, 23, 28, 15],
+    "TrackType": "File",
+    "TrackID": 592,
+    "type": "track",
+    "Kind": "AAC audio file",
+    "Year": 2007,
+    "TrackNumber": 8,
+    "Composer": "H. Schuering, I. Schmidt, J. Liebezeit, K. Suzuki, Kanye West & M. Karoli",
+    "Genre": "Hip-Hop/Rap",
+    "DiscCount": 1,
+    "PlayDateUTC": [2012, 8, 0, 17, 53, 42],
+    "FileFolderCount": 5,
+    "ArtworkCount": 1,
+    "Artist": "Kanye West",
+    "PlayDate": NumberLong("3431249622"),
+    "Album": "Graduation (Deluxe Edition)",
+    "Size": 12965836,
+    "albumkey": "album:graduationdeluxeedition",
+    "SkipCount": 1,
+    "TrackCount": 15,
+    "LibraryFolderCount": 1,
+    "DateAdded": [2012, 8, 4, 2, 14, 55],
+    "SampleRate": 44100,
+    "Location": "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/Graduation%20(Deluxe%20Edition)/08%20Drunk%20&%20Hot%20Girls%20(Feat.%20Mos%20Def).m4a",
+    "PersistentID": "C96BD4CF74B666AB",
+    "DiscNumber": 1,
+    "TotalTime": 313226,
+    "Name": "Drunk & Hot Girls (Feat. Mos Def)",
+    "SortAlbum": "Graduation (Deluxe Edition)",
+    "DateModified": [2012, 8, 4, 2, 4, 54],
+    "SortArtist": "Kanye West",
+    "BitRate": 320,
+    "artistkey": "artist:kanyewest",
+    "ReleaseDate": ISODate("2007-09-10T16:00:00Z")
+}
+

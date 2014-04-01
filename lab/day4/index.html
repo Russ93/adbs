@@ -1,0 +1,73 @@
+<html lang="en">
+
+<head>
+    <!-- JS -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.js"></script>
+    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/public/ejs.js"></script>
+    <script type="text/javascript" src="/public/main.js"></script>
+    <!-- CSS -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/flick/jquery-ui.min.css" rel="stylesheet">
+    <link href="/public/style.css" rel="stylesheet">
+
+    <style type="text/css"></style>
+</head>
+
+<body cz-shortcut-listen="true" style="">
+    <div class="container">
+        <nav>
+            <div id="logo">
+                <a href="/">
+                    <img src="/public/l.png">
+                </a>
+            </div>
+            <form id="userSearch" class="col-sm-11">
+                <label>Search Users Posts</label>
+                <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                <input id="getUsers" type="text" name="uName" class="form-control ui-autocomplete-input" placeholder="Enter Users Firstname" autocomplete="off">
+                <input id="userId" type="hidden" name="userId" value="">
+                <input type="hidden" name="controller" value="public">
+            </form>
+        </nav>
+        <h2>John Doe</h2>
+        <section class="col-sm-8 col-sm-offset-2 posts">
+            <h3 class="col-sm-6">Hello World</h3>
+            <time class="col-sm-4" datetime="2014-03-17 05:43:49">2014-03-17 05:43:49</time>
+            <button class="btn btn-default">edit</button>
+            <p class="col-sm-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin iaculis vel velit non scelerisque. Proin sed porttitor velit, eget porttitor neque. Praesent et augue sollicitudin, euismod arcu quis, aliquam enim. Cras orci massa, sagittis vitae rhoncus lobortis, ornare sed nibh. Cras ornare augue sit amet viverra pellentesque. Duis vestibulum commodo erat nec blandit. Quisque tempor urna in urna fringilla, varius tincidunt lorem molestie. Sed in enim ut quam ornare porta.</p>
+            <div class="col-sm-12">
+                <p class="col-sm-4">Anonymous</p>
+                <textarea class="col-sm-12 form-control"></textarea>
+                <button class="btn btn-primary">Submit</button>
+            </div>
+            <ul class="col-sm-12">
+                <li class="col-sm-12">
+                    <h4 class="col-sm-6">student</h4>
+                    <time class="col-sm-6" datetime="2014-03-17 05:43:49">2014-03-17 05:43:49</time>
+                    <p class="col-sm-12">Thats Awesome</p>
+                </li>
+                <li class="col-sm-12">
+                    <h4 class="col-sm-6">student</h4>
+                    <time class="col-sm-6" datetime="2014-03-17 05:43:49">2014-03-17 05:43:49</time>
+                    <p class="col-sm-12">Thats Awesome</p>
+                </li>
+            </ul>
+        </section>
+    </div>
+    <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content ui-corner-all" id="ui-id-1" tabindex="0" style="display: none;"></ul>
+</body>
+
+</html>
+<script>
+    <p class="col-sm-4">Anonymous</p>
+    <textarea class="col-sm-12 form-control"></textarea>
+    <button class="btn btn-primary">Submit</button>
+    {
+        "text": "Thats Awesome",
+        "authorId": "183e0724-50f8-4e00-995e-23ac5e67fbfa",
+        "authorName": "student",
+        "posted": "2014-03-17 19:58:15"
+    }
+</script>

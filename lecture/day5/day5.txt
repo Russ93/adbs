@@ -1,0 +1,418 @@
+Last login: Mon Mar 17 15:53:39 on ttys000
+You have mail.
+cd /Users/russellbenton/Desktop/ADB/mongodb/bin; clear; pwd
+Russells-MacBook-Pro-7:~ russellbenton$ cd /Users/russellbenton/Desktop/ADB/mongodb/bin; clear; pwd
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/Users/russellbenton/Desktop/ADB/mongodb/bin
+Russells-MacBook-Pro-7:bin russellbenton$ ./mongo
+MongoDB shell version: 2.4.9
+connecting to: test
+Server has startup warnings: 
+Mon Mar 17 15:53:46.742 [initandlisten] 
+Mon Mar 17 15:53:46.742 [initandlisten] ** WARNING: soft rlimits too low. Number of files is 256, should be at least 1000
+> ^C
+bye
+Russells-MacBook-Pro-7:bin russellbenton$ ./mongo
+MongoDB shell version: 2.4.9
+connecting to: test
+Server has startup warnings: 
+Mon Mar 17 15:53:46.742 [initandlisten] 
+Mon Mar 17 15:53:46.742 [initandlisten] ** WARNING: soft rlimits too low. Number of files is 256, should be at least 1000
+> use adb1403
+switched to db adb1403
+> db.adb1403.find().explain()
+{
+	"cursor" : "BasicCursor",
+	"isMultiKey" : false,
+	"n" : 15,
+	"nscannedObjects" : 15,
+	"nscanned" : 15,
+	"nscannedObjectsAllPlans" : 15,
+	"nscannedAllPlans" : 15,
+	"scanAndOrder" : false,
+	"indexOnly" : false,
+	"nYields" : 0,
+	"nChunkSkips" : 0,
+	"millis" : 0,
+	"indexBounds" : {
+		
+	},
+	"server" : "Russells-MacBook-Pro-7.local:27017"
+}
+> db.adb1403.getIndexKeys().explain()
+Mon Mar 17 17:57:49.372 TypeError: Object [object Object],[object Object] has no method 'explain'
+> db.adb1403.getIndexKeys()
+[ { "_id" : 1 }, { "name" : 1 } ]
+> db.adb1403.find({lastname:'Smith'})
+> db.adb1403.find({lastname:'Suo'})
+> db.adb1403.find()
+{ "_id" : ObjectId("531515583a543db604d15abf"), "type" : "user", "name" : "John Doe" }
+{ "_id" : ObjectId("531519463a543db604d15ac3"), "type" : "user", "name" : "Cain Hamlet", "age" : 23, "height" : 6.4, "eyeColor" : "green" }
+{ "_id" : ObjectId("531519623a543db604d15ac4"), "type" : "user", "name" : "Tamaki Suo", "age" : 26, "height" : 6.4, "eyeColor" : "blue" }
+{ "_id" : ObjectId("531519953a543db604d15ac5"), "type" : "user", "name" : "Willford Brimley", "age" : 86, "height" : 5.2, "eyeColor" : "brown" }
+{ "_id" : ObjectId("531519db3a543db604d15ac6"), "type" : "user", "name" : "Orcun Person", "age" : 26, "height" : 5.7, "eyeColor" : "brown" }
+{ "_id" : ObjectId("531519f33a543db604d15ac7"), "type" : "user", "name" : "Ross Springsteen", "age" : 28, "height" : 5.7, "eyeColor" : "red" }
+{ "_id" : ObjectId("53151a113a543db604d15ac8"), "type" : "user", "name" : "Jairo Juardo", "age" : 21, "height" : 5.5, "eyeColor" : "brown" }
+{ "_id" : ObjectId("53151a763a543db604d15ac9"), "type" : "user", "name" : "Abel Luteniet", "age" : 24, "height" : 5.5, "eyeColor" : "purple" }
+{ "_id" : ObjectId("53151ad03a543db604d15aca"), "type" : "user", "name" : "Elizabeth Taylor", "age" : 98, "height" : 5.3, "eyeColor" : "purple" }
+{ "_id" : ObjectId("53151b163a543db604d15acb"), "type" : "admin", "name" : "Eward James Olmos" }
+{ "_id" : ObjectId("5317acc64750238da87ac91d"), "type" : "user", "name" : "Mark Zuckerburg", "age" : 28, "favNum" : [  1,  3,  5,  7,  11 ] }
+{ "_id" : ObjectId("5317ad364750238da87ac91e"), "type" : "user", "name" : "Ben Forta", "age" : 58, "children" : [  {  "name" : "Sally",  "age" : 5 },  {  "name" : "Jimmy",  "age" : 12 } ] }
+{ "_id" : 0, "description" : "stuuf anf Things" }
+{ "_id" : 2, "desc" : "Even Numbers", "prime" : [  2,  4,  6,  8,  10 ] }
+{ "_id" : 3, "desc" : "Really Odd Numbers", "prime" : [  1,  5,  7,  9,  11,  13,  15,  17,  19 ] }
+> db.contacts.find()
+{ "_id" : ObjectId("5320dcb5225dce58648cef37"), "firstame" : "firstname", "lastname" : "lastname", "username" : "username", "dob" : "dob", "userStatus" : "userStatus", "userType" : "userType", "createdDate" : "createdDate" }
+{ "_id" : ObjectId("5320dcb5225dce58648cef38"), "firstame" : "Jane", "lastname" : "Smith", "username" : "jsmith12", "dob" : "1980-01-21", "userStatus" : "Active", "userType" : "Client", "createdDate" : "2011-03-17 23:38:27" }
+{ "_id" : ObjectId("5320dcb5225dce58648cef39"), "firstame" : "Sally", "lastname" : "Jones", "username" : "sjones", "dob" : "1973-07-10", "userStatus" : "Active", "userType" : "Client", "createdDate" : "2011-03-17 23:38:27" }
+{ "_id" : ObjectId("5320dcb5225dce58648cef3a"), "firstame" : "Jack", "lastname" : "Dole", "username" : "jdole", "dob" : "1970-05-01", "userStatus" : "Active", "userType" : "Client", "createdDate" : "2011-03-17 23:38:27" }
+{ "_id" : ObjectId("5320dcb5225dce58648cef3b"), "firstame" : "Bane", "lastname" : "Bloodlust", "username" : "BBL", "dob" : "1997-06-05", "userStatus" : "Active", "userType" : "Client", "createdDate" : "2012-01-26 13:38:01" }
+{ "_id" : ObjectId("5320dcb5225dce58648cef3c"), "firstame" : "Lucy", "lastname" : "Reeds", "username" : NumberLong("23456543234"), "dob" : "2000-01-01", "userStatus" : "Active", "userType" : "Client", "createdDate" : "2012-01-26 13:38:35" }
+{ "_id" : ObjectId("5320dcb5225dce58648cef3d"), "firstame" : "Paul", "lastname" : "Kinds", "username" : "pk1", "dob" : "1975-03-03", "userStatus" : "Active", "userType" : "Client", "createdDate" : "2011-03-17 23:38:27" }
+{ "_id" : ObjectId("5320dcb5225dce58648cef3e"), "firstame" : "Kevin", "lastname" : "Smith", "username" : "ks1", "dob" : "1983-07-02", "userStatus" : "Active", "userType" : "Client", "createdDate" : "2011-03-17 23:38:27" }
+{ "_id" : ObjectId("5320dcb5225dce58648cef3f"), "firstame" : "Paul", "lastname" : "Matin", "username" : "pm1", "dob" : "1990-09-08", "userStatus" : "Active", "userType" : "Client", "createdDate" : "2011-03-17 23:43:51" }
+{ "_id" : ObjectId("5320dcb5225dce58648cef40"), "firstame" : "Rango", "lastname" : "Matinez", "username" : "rm1", "dob" : "1991-03-27", "userStatus" : "Active", "userType" : "Client", "createdDate" : "2011-03-17 23:49:29" }
+{ "_id" : ObjectId("5320dcb5225dce58648cef41"), "firstame" : "Sam", "lastname" : "Matinez", "username" : "sm1", "dob" : "1986-06-06", "userStatus" : "Active", "userType" : "Client", "createdDate" : "2011-03-17 23:50:29" }
+{ "_id" : ObjectId("5320dcb5225dce58648cef42"), "firstame" : "James", "lastname" : "Khole", "username" : "jk1", "dob" : "1970-10-31", "userStatus" : "Active", "userType" : "Client", "createdDate" : "2011-03-17 23:50:29" }
+{ "_id" : ObjectId("5320dcb5225dce58648cef43"), "firstame" : "Eric", "lastname" : "Jones", "username" : "C7CCQQNss713", "dob" : "1971-11-27", "userStatus" : "Active", "userType" : "Client", "createdDate" : "2012-01-26 11:59:39" }
+{ "_id" : ObjectId("5320dcb5225dce58648cef44"), "firstame" : "Jesse", "lastname" : "Water", "username" : "PMADQP3ss648", "dob" : "1998-06-22", "userStatus" : "Active", "userType" : "Client", "createdDate" : "2012-01-26 11:59:39" }
+{ "_id" : ObjectId("5320dcb5225dce58648cef45"), "firstame" : "Jim", "lastname" : "Water", "username" : "G553S4Qss732", "dob" : "1960-07-12", "userStatus" : "Active", "userType" : "Client", "createdDate" : "2012-01-26 11:59:39" }
+{ "_id" : ObjectId("5320dcb5225dce58648cef46"), "firstame" : "Claudia", "lastname" : "Osborne", "username" : "9CC46PSss827", "dob" : "1991-11-06", "userStatus" : "Active", "userType" : "Client", "createdDate" : "2012-01-26 11:59:39" }
+{ "_id" : ObjectId("5320dcb5225dce58648cef47"), "firstame" : "Axel", "lastname" : "Falker", "username" : "AABMPCGss409", "dob" : "1981-07-25", "userStatus" : "Active", "userType" : "Client", "createdDate" : "2012-01-26 11:59:39" }
+{ "_id" : ObjectId("5320dcb5225dce58648cef48"), "firstame" : "Homer", "lastname" : "Grant", "username" : "7KNG6P5ss75", "dob" : "1951-12-26", "userStatus" : "Active", "userType" : "Client", "createdDate" : "2012-01-26 11:59:39" }
+{ "_id" : ObjectId("5320dcb5225dce58648cef49"), "firstame" : "Jeremy", "lastname" : "Falker", "username" : "NG2N23Gss297", "dob" : "1978-10-01", "userStatus" : "Active", "userType" : "Client", "createdDate" : "2012-01-26 11:59:39" }
+{ "_id" : ObjectId("5320dcb5225dce58648cef4a"), "firstame" : "Lee", "lastname" : "Rome", "username" : "47DFDG5ss24", "dob" : "1972-10-01", "userStatus" : "Active", "userType" : "Client", "createdDate" : "2012-01-26 11:59:39" }
+Type "it" for more
+> db.contacts.find({lastname:'smith'})
+> db.contacts.find({lastname:'Smith'})
+{ "_id" : ObjectId("5320dcb5225dce58648cef38"), "firstame" : "Jane", "lastname" : "Smith", "username" : "jsmith12", "dob" : "1980-01-21", "userStatus" : "Active", "userType" : "Client", "createdDate" : "2011-03-17 23:38:27" }
+{ "_id" : ObjectId("5320dcb5225dce58648cef3e"), "firstame" : "Kevin", "lastname" : "Smith", "username" : "ks1", "dob" : "1983-07-02", "userStatus" : "Active", "userType" : "Client", "createdDate" : "2011-03-17 23:38:27" }
+{ "_id" : ObjectId("5320dcb5225dce58648cef50"), "firstame" : "Don", "lastname" : "Smith", "username" : "PKFNF2Dss732", "dob" : "1957-11-14", "userStatus" : "Active", "userType" : "Client", "createdDate" : "2012-01-26 11:59:39" }
+{ "_id" : ObjectId("5320dcb5225dce58648cefa2"), "firstame" : "Q", "lastname" : "Smith", "username" : "HEGG8ECss695", "dob" : "1988-02-13", "userStatus" : "Active", "userType" : "Client", "createdDate" : "2012-01-26 11:59:39" }
+{ "_id" : ObjectId("5320dcb5225dce58648cefc1"), "firstame" : "Homer", "lastname" : "Smith", "username" : "SJNMHSJss657", "dob" : "1971-07-02", "userStatus" : "Active", "userType" : "Client", "createdDate" : "2012-01-26 11:59:39" }
+{ "_id" : ObjectId("5320dcb5225dce58648cefdb"), "firstame" : "Sandy", "lastname" : "Smith", "username" : "7S6CENPss940", "dob" : "1994-12-14", "userStatus" : "Active", "userType" : "Client", "createdDate" : "2012-01-26 11:59:39" }
+{ "_id" : ObjectId("5320dcb5225dce58648cefe2"), "firstame" : "Danny", "lastname" : "Smith", "username" : "GDAB5SGss271", "dob" : "1959-06-24", "userStatus" : "Active", "userType" : "Client", "createdDate" : "2012-01-26 11:59:39" }
+{ "_id" : ObjectId("5320dcb5225dce58648ceff5"), "firstame" : "Homer", "lastname" : "Smith", "username" : "MMR5H4Qss241", "dob" : "1962-07-18", "userStatus" : "Active", "userType" : "Client", "createdDate" : "2012-01-26 11:59:39" }
+{ "_id" : ObjectId("5320dcb5225dce58648cf01c"), "firstame" : "Ashley", "lastname" : "Smith", "username" : "34EQ7E2ss302", "dob" : "1959-07-17", "userStatus" : "Active", "userType" : "Client", "createdDate" : "2012-01-26 11:59:39" }
+{ "_id" : ObjectId("5320dcb5225dce58648cf032"), "firstame" : "Dale", "lastname" : "Smith", "username" : "MRHRB27ss818", "dob" : "1957-12-17", "userStatus" : "Active", "userType" : "Client", "createdDate" : "2012-01-26 11:59:39" }
+{ "_id" : ObjectId("5320dcb5225dce58648cf038"), "firstame" : "Jesse", "lastname" : "Smith", "username" : "FF5EBB3ss43", "dob" : "1988-05-20", "userStatus" : "Active", "userType" : "Client", "createdDate" : "2012-01-26 11:59:39" }
+{ "_id" : ObjectId("5320dcb5225dce58648cf03e"), "firstame" : "Q", "lastname" : "Smith", "username" : "5C3Q89Ass843", "dob" : "1957-10-22", "userStatus" : "Active", "userType" : "Client", "createdDate" : "2012-01-26 11:59:39" }
+{ "_id" : ObjectId("5320dcb5225dce58648cf056"), "firstame" : "Alan", "lastname" : "Smith", "username" : "GJE6EJ3ss885", "dob" : "1992-10-03", "userStatus" : "Active", "userType" : "Client", "createdDate" : "2012-01-26 11:59:39" }
+{ "_id" : ObjectId("5320dcb5225dce58648cf062"), "firstame" : "Paul", "lastname" : "Smith", "username" : "3MH2KNFss691", "dob" : "1969-04-16", "userStatus" : "Active", "userType" : "Client", "createdDate" : "2012-01-26 11:59:39" }
+{ "_id" : ObjectId("5320dcb5225dce58648cf06d"), "firstame" : "Alan", "lastname" : "Smith", "username" : "P2FMQ35ss103", "dob" : "1958-06-02", "userStatus" : "Active", "userType" : "Client", "createdDate" : "2012-01-26 11:59:39" }
+{ "_id" : ObjectId("5320dcb5225dce58648cf076"), "firstame" : "Ash", "lastname" : "Smith", "username" : "7A6BPFRss509", "dob" : "1959-03-18", "userStatus" : "Active", "userType" : "Client", "createdDate" : "2012-01-26 11:59:39" }
+{ "_id" : ObjectId("5320dcb5225dce58648cf07e"), "firstame" : "Mary", "lastname" : "Smith", "username" : "2F4EC9Bss244", "dob" : "1971-08-10", "userStatus" : "Active", "userType" : "Client", "createdDate" : "2012-01-26 11:59:39" }
+{ "_id" : ObjectId("5320dcb5225dce58648cf0b9"), "firstame" : "Gary", "lastname" : "Smith", "username" : "RQMS55Bss221", "dob" : "1950-06-03", "userStatus" : "Active", "userType" : "Client", "createdDate" : "2012-01-26 11:59:39" }
+{ "_id" : ObjectId("5320dcb5225dce58648cf0ba"), "firstame" : "Eric", "lastname" : "Smith", "username" : "RE45K9Bss834", "dob" : "1973-03-04", "userStatus" : "Active", "userType" : "Client", "createdDate" : "2012-01-26 11:59:39" }
+{ "_id" : ObjectId("5320dcb5225dce58648cf11e"), "firstame" : "Claudia", "lastname" : "Smith", "username" : "GC64H8Rss33", "dob" : "1981-05-26", "userStatus" : "Active", "userType" : "Client", "createdDate" : "2012-01-26 11:59:39" }
+Type "it" for more
+> db.contacts.find({lastname:'Smith'}).explain()
+{
+	"cursor" : "BasicCursor",
+	"isMultiKey" : false,
+	"n" : 1000,
+	"nscannedObjects" : 97305,
+	"nscanned" : 97305,
+	"nscannedObjectsAllPlans" : 97305,
+	"nscannedAllPlans" : 97305,
+	"scanAndOrder" : false,
+	"indexOnly" : false,
+	"nYields" : 0,
+	"nChunkSkips" : 0,
+	"millis" : 41,
+	"indexBounds" : {
+		
+	},
+	"server" : "Russells-MacBook-Pro-7.local:27017"
+}
+> db.contacts.ensureIndex({lastname:1})
+> db.contacts.find({lastname:'Smith'}).explain()
+{
+	"cursor" : "BtreeCursor lastname_1",
+	"isMultiKey" : false,
+	"n" : 1000,
+	"nscannedObjects" : 1000,
+	"nscanned" : 1000,
+	"nscannedObjectsAllPlans" : 1000,
+	"nscannedAllPlans" : 1000,
+	"scanAndOrder" : false,
+	"indexOnly" : false,
+	"nYields" : 0,
+	"nChunkSkips" : 0,
+	"millis" : 3,
+	"indexBounds" : {
+		"lastname" : [
+			[
+				"Smith",
+				"Smith"
+			]
+		]
+	},
+	"server" : "Russells-MacBook-Pro-7.local:27017"
+}
+> db.contacts.find({lastname:'Smith'}).hint({$natural:1}).explain()
+{
+	"cursor" : "BasicCursor",
+	"isMultiKey" : false,
+	"n" : 1000,
+	"nscannedObjects" : 97305,
+	"nscanned" : 97305,
+	"nscannedObjectsAllPlans" : 97305,
+	"nscannedAllPlans" : 97305,
+	"scanAndOrder" : false,
+	"indexOnly" : false,
+	"nYields" : 1,
+	"nChunkSkips" : 0,
+	"millis" : 49,
+	"indexBounds" : {
+		
+	},
+	"server" : "Russells-MacBook-Pro-7.local:27017"
+}
+> db.contacts.ensureIndex({lastname:-1})
+> db.contacts.find({lastname:'Smith'}).explain()
+{
+	"cursor" : "BtreeCursor lastname_1",
+	"isMultiKey" : false,
+	"n" : 1000,
+	"nscannedObjects" : 1000,
+	"nscanned" : 1000,
+	"nscannedObjectsAllPlans" : 1000,
+	"nscannedAllPlans" : 1000,
+	"scanAndOrder" : false,
+	"indexOnly" : false,
+	"nYields" : 0,
+	"nChunkSkips" : 0,
+	"millis" : 4,
+	"indexBounds" : {
+		"lastname" : [
+			[
+				"Smith",
+				"Smith"
+			]
+		]
+	},
+	"server" : "Russells-MacBook-Pro-7.local:27017"
+}
+> db.contacts.find({lastname:'Smith'}).hint(lastname:-1).explain()
+Mon Mar 17 18:09:21.729 SyntaxError: Unexpected token :
+> db.contacts.find({lastname:'Smith'}).hint({lastname:-1}).explain()
+{
+	"cursor" : "BtreeCursor lastname_-1",
+	"isMultiKey" : false,
+	"n" : 1000,
+	"nscannedObjects" : 1000,
+	"nscanned" : 1000,
+	"nscannedObjectsAllPlans" : 1000,
+	"nscannedAllPlans" : 1000,
+	"scanAndOrder" : false,
+	"indexOnly" : false,
+	"nYields" : 0,
+	"nChunkSkips" : 0,
+	"millis" : 2,
+	"indexBounds" : {
+		"lastname" : [
+			[
+				"Smith",
+				"Smith"
+			]
+		]
+	},
+	"server" : "Russells-MacBook-Pro-7.local:27017"
+}
+> shoe collections
+Mon Mar 17 18:13:08.623 SyntaxError: Unexpected identifier
+> show collections
+adb1403
+contacts
+grades
+system.indexes
+userType
+> ./mongoimport -d adb1403 -c location -file import/locations.js
+Mon Mar 17 18:15:19.618 SyntaxError: Unexpected token .
+> show collections
+adb1403
+contacts
+grades
+location
+system.indexes
+userType
+> db.location.find()
+{ "_id" : ObjectId("53277400e0b5d82ad12ec258"), "Name" : "Full Sail", "Address" : "3300 University Boulevard Winter Park Fl 32792", "ll" : [  -81.30151,  28.59716 ] }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec259"), "Name" : "Perkins", "Address" : "6425 University Blvd Winter Park FL 32792", "ll" : [  -81.29785,  28.59771 ] }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec25a"), "Name" : "Longhorn", "Address" : "309 N Alafaya Trail Orlando", "Lng" : [  -81.20367,  28.55188 ] }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec25b"), "Name" : "Ruth Chris", "Address" : "Fountains Plaza 7501 W Sand Lake Rd Orlando FL", "ll" : [  -81.48512,  28.45003 ] }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec25c"), "Name" : "Bubbalous Bodacious Bar-B-Q", "Address" : "12100 Challenger Pkwy Orlando FL", "ll" : [  -81.2071,  28.5728 ] }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec25d"), "Name" : "Wildside", "Address" : "700 E Washington St Orlando FL", "ll" : [  -81.36839,  28.54357 ] }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec25e"), "Name" : "The Cheesecake Factory", "Address" : "Mall at Millenia 4200 Conroy Rd Orlando FL", "ll" : [  -81.46105,  28.49375 ] }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec25f"), "Name" : "Pizza Rustica", "Address" : "667 Lincoln Rd Miami Beach FL", "ll" : [  -80.13544,  25.79067 ] }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec260"), "Name" : "Jekyll & Hyde", "Address" : "91 7th Ave S New York NY", "ll" : [  -74.00294,  40.73275 ] }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec261"), "Name" : "Mellow Mushroom", "Address" : "2015 Aloma Ave, Winter Park", "ll" : [  -81.3236189,  28.601004 ] }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec262"), "Name" : "Area 31", "Address" : "270 Biscayne Blvd Way, Miami", "ll" : [  -80.1895992,  25.7704669 ] }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec263"), "Name" : "Pizza Rustica", "Address" : "667 Lincoln Rd, Miami Beach, Florida", "ll" : [  -80.1354434,  25.7906742 ] }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec264"), "Name" : "Vortex Bar & Grill", "Address" : "438 Moreland Ave NE, Atlanta, GA", "ll" : [  -84.3491655,  33.7662625 ] }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec265"), "Name" : "Sushi Zushi", "Address" : "3858 Oak Lawn Ave #145, Dallas, TX", "ll" : [  -96.8022436,  32.8149183 ] }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec266"), "Name" : "Otto & Anita's Bavarian Restaurant", "Address" : "3025 SW Canby St, Portland, Oregon", "ll" : [  -122.7086928,  45.468922 ] }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec267"), "Name" : "Terroirs", "Address" : "5 William IV St, London, England", "ll" : [  -0.1253055,  51.5093803 ] }
+> db.location.ensureIndex({ll:'2d'})
+> 
+> 
+> 
+> 
+> db.location.find({ll:{$near:[-81.301.151, 28.59716]}})
+Mon Mar 17 18:27:12.405 SyntaxError: Unexpected number
+> db.location.find({ll:{$near:[-81.301151, 28.59716]}})
+{ "_id" : ObjectId("53277400e0b5d82ad12ec258"), "Name" : "Full Sail", "Address" : "3300 University Boulevard Winter Park Fl 32792", "ll" : [  -81.30151,  28.59716 ] }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec259"), "Name" : "Perkins", "Address" : "6425 University Blvd Winter Park FL 32792", "ll" : [  -81.29785,  28.59771 ] }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec261"), "Name" : "Mellow Mushroom", "Address" : "2015 Aloma Ave, Winter Park", "ll" : [  -81.3236189,  28.601004 ] }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec25d"), "Name" : "Wildside", "Address" : "700 E Washington St Orlando FL", "ll" : [  -81.36839,  28.54357 ] }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec25c"), "Name" : "Bubbalous Bodacious Bar-B-Q", "Address" : "12100 Challenger Pkwy Orlando FL", "ll" : [  -81.2071,  28.5728 ] }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec25e"), "Name" : "The Cheesecake Factory", "Address" : "Mall at Millenia 4200 Conroy Rd Orlando FL", "ll" : [  -81.46105,  28.49375 ] }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec25b"), "Name" : "Ruth Chris", "Address" : "Fountains Plaza 7501 W Sand Lake Rd Orlando FL", "ll" : [  -81.48512,  28.45003 ] }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec262"), "Name" : "Area 31", "Address" : "270 Biscayne Blvd Way, Miami", "ll" : [  -80.1895992,  25.7704669 ] }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec263"), "Name" : "Pizza Rustica", "Address" : "667 Lincoln Rd, Miami Beach, Florida", "ll" : [  -80.1354434,  25.7906742 ] }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec25f"), "Name" : "Pizza Rustica", "Address" : "667 Lincoln Rd Miami Beach FL", "ll" : [  -80.13544,  25.79067 ] }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec264"), "Name" : "Vortex Bar & Grill", "Address" : "438 Moreland Ave NE, Atlanta, GA", "ll" : [  -84.3491655,  33.7662625 ] }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec260"), "Name" : "Jekyll & Hyde", "Address" : "91 7th Ave S New York NY", "ll" : [  -74.00294,  40.73275 ] }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec265"), "Name" : "Sushi Zushi", "Address" : "3858 Oak Lawn Ave #145, Dallas, TX", "ll" : [  -96.8022436,  32.8149183 ] }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec266"), "Name" : "Otto & Anita's Bavarian Restaurant", "Address" : "3025 SW Canby St, Portland, Oregon", "ll" : [  -122.7086928,  45.468922 ] }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec267"), "Name" : "Terroirs", "Address" : "5 William IV St, London, England", "ll" : [  -0.1253055,  51.5093803 ] }
+> db.location.find({ll:{$near:[-81.301151, 28.59716]}},{address:1})
+{ "_id" : ObjectId("53277400e0b5d82ad12ec258") }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec259") }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec261") }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec25d") }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec25c") }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec25e") }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec25b") }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec262") }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec263") }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec25f") }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec264") }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec260") }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec265") }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec266") }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec267") }
+> db.location.find({ll:{$near:[-81.301151, 28.59716]}},{Address:1})
+{ "_id" : ObjectId("53277400e0b5d82ad12ec258"), "Address" : "3300 University Boulevard Winter Park Fl 32792" }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec259"), "Address" : "6425 University Blvd Winter Park FL 32792" }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec261"), "Address" : "2015 Aloma Ave, Winter Park" }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec25d"), "Address" : "700 E Washington St Orlando FL" }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec25c"), "Address" : "12100 Challenger Pkwy Orlando FL" }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec25e"), "Address" : "Mall at Millenia 4200 Conroy Rd Orlando FL" }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec25b"), "Address" : "Fountains Plaza 7501 W Sand Lake Rd Orlando FL" }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec262"), "Address" : "270 Biscayne Blvd Way, Miami" }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec263"), "Address" : "667 Lincoln Rd, Miami Beach, Florida" }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec25f"), "Address" : "667 Lincoln Rd Miami Beach FL" }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec264"), "Address" : "438 Moreland Ave NE, Atlanta, GA" }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec260"), "Address" : "91 7th Ave S New York NY" }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec265"), "Address" : "3858 Oak Lawn Ave #145, Dallas, TX" }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec266"), "Address" : "3025 SW Canby St, Portland, Oregon" }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec267"), "Address" : "5 William IV St, London, England" }
+> db.location.find({ll:{$near:[-81.301151, 28.59716]}},{Address:1}).pretty
+function (){
+    this._prettyShell = true;
+    return this;
+}
+> db.location.find({ll:{$near:[-81.301151, 28.59716]}},{Address:1}).pretty()
+{
+	"_id" : ObjectId("53277400e0b5d82ad12ec258"),
+	"Address" : "3300 University Boulevard Winter Park Fl 32792"
+}
+{
+	"_id" : ObjectId("53277400e0b5d82ad12ec259"),
+	"Address" : "6425 University Blvd Winter Park FL 32792"
+}
+{
+	"_id" : ObjectId("53277400e0b5d82ad12ec261"),
+	"Address" : "2015 Aloma Ave, Winter Park"
+}
+{
+	"_id" : ObjectId("53277400e0b5d82ad12ec25d"),
+	"Address" : "700 E Washington St Orlando FL"
+}
+{
+	"_id" : ObjectId("53277400e0b5d82ad12ec25c"),
+	"Address" : "12100 Challenger Pkwy Orlando FL"
+}
+{
+	"_id" : ObjectId("53277400e0b5d82ad12ec25e"),
+	"Address" : "Mall at Millenia 4200 Conroy Rd Orlando FL"
+}
+{
+	"_id" : ObjectId("53277400e0b5d82ad12ec25b"),
+	"Address" : "Fountains Plaza 7501 W Sand Lake Rd Orlando FL"
+}
+{
+	"_id" : ObjectId("53277400e0b5d82ad12ec262"),
+	"Address" : "270 Biscayne Blvd Way, Miami"
+}
+{
+	"_id" : ObjectId("53277400e0b5d82ad12ec263"),
+	"Address" : "667 Lincoln Rd, Miami Beach, Florida"
+}
+{
+	"_id" : ObjectId("53277400e0b5d82ad12ec25f"),
+	"Address" : "667 Lincoln Rd Miami Beach FL"
+}
+{
+	"_id" : ObjectId("53277400e0b5d82ad12ec264"),
+	"Address" : "438 Moreland Ave NE, Atlanta, GA"
+}
+{
+	"_id" : ObjectId("53277400e0b5d82ad12ec260"),
+	"Address" : "91 7th Ave S New York NY"
+}
+{
+	"_id" : ObjectId("53277400e0b5d82ad12ec265"),
+	"Address" : "3858 Oak Lawn Ave #145, Dallas, TX"
+}
+{
+	"_id" : ObjectId("53277400e0b5d82ad12ec266"),
+	"Address" : "3025 SW Canby St, Portland, Oregon"
+}
+{
+	"_id" : ObjectId("53277400e0b5d82ad12ec267"),
+	"Address" : "5 William IV St, London, England"
+}
+> db.location.find({ll:{$near:[-81.301151, 28.59716]}},{Address:1})
+{ "_id" : ObjectId("53277400e0b5d82ad12ec258"), "Address" : "3300 University Boulevard Winter Park Fl 32792" }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec259"), "Address" : "6425 University Blvd Winter Park FL 32792" }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec261"), "Address" : "2015 Aloma Ave, Winter Park" }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec25d"), "Address" : "700 E Washington St Orlando FL" }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec25c"), "Address" : "12100 Challenger Pkwy Orlando FL" }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec25e"), "Address" : "Mall at Millenia 4200 Conroy Rd Orlando FL" }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec25b"), "Address" : "Fountains Plaza 7501 W Sand Lake Rd Orlando FL" }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec262"), "Address" : "270 Biscayne Blvd Way, Miami" }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec263"), "Address" : "667 Lincoln Rd, Miami Beach, Florida" }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec25f"), "Address" : "667 Lincoln Rd Miami Beach FL" }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec264"), "Address" : "438 Moreland Ave NE, Atlanta, GA" }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec260"), "Address" : "91 7th Ave S New York NY" }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec265"), "Address" : "3858 Oak Lawn Ave #145, Dallas, TX" }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec266"), "Address" : "3025 SW Canby St, Portland, Oregon" }
+{ "_id" : ObjectId("53277400e0b5d82ad12ec267"), "Address" : "5 William IV St, London, England" }
+> 
+> 
+> 
+> 
+> 
+> 
+> 

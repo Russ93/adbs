@@ -1,0 +1,2585 @@
+Last login: Wed Mar  5 17:40:42 on ttys000
+cd /Users/russellbenton/Desktop/ADB/mongodb/bin; clear; pwd
+Russells-MacBook-Pro-7:~ russellbenton$ cd /Users/russellbenton/Desktop/ADB/mongodb/bin; clear; pwd
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/Users/russellbenton/Desktop/ADB/mongodb/bin
+Russells-MacBook-Pro-7:bin russellbenton$ showdbs
+-bash: showdbs: command not found
+Russells-MacBook-Pro-7:bin russellbenton$ dhow dbs
+-bash: dhow: command not found
+Russells-MacBook-Pro-7:bin russellbenton$ show dbs
+-bash: show: command not found
+Russells-MacBook-Pro-7:bin russellbenton$ ./mongo
+MongoDB shell version: 2.4.9
+connecting to: test
+Server has startup warnings: 
+Wed Mar  5 17:41:08.105 [initandlisten] 
+Wed Mar  5 17:41:08.105 [initandlisten] ** WARNING: soft rlimits too low. Number of files is 256, should be at least 1000
+> show dbs
+adb1403	0.203125GB
+itunes	0.203125GB
+local	0.078125GB
+test	0.203125GB
+> clear
+Wed Mar  5 17:44:35.754 ReferenceError: clear is not defined
+> use adb1403
+switched to db adb1403
+> show collections
+adb1403
+system.indexes
+> db.adb1403.find()
+{ "_id" : ObjectId("531515583a543db604d15abf"), "type" : "user", "name" : "John Doe" }
+{ "_id" : ObjectId("531519463a543db604d15ac3"), "type" : "user", "name" : "Cain Hamlet", "age" : 23, "height" : 6.4, "eyeColor" : "green" }
+{ "_id" : ObjectId("531519623a543db604d15ac4"), "type" : "user", "name" : "Tamaki Suo", "age" : 26, "height" : 6.4, "eyeColor" : "blue" }
+{ "_id" : ObjectId("531519953a543db604d15ac5"), "type" : "user", "name" : "Willford Brimley", "age" : 86, "height" : 5.2, "eyeColor" : "brown" }
+{ "_id" : ObjectId("531519db3a543db604d15ac6"), "type" : "user", "name" : "Orcun Person", "age" : 26, "height" : 5.7, "eyeColor" : "brown" }
+{ "_id" : ObjectId("531519f33a543db604d15ac7"), "type" : "user", "name" : "Ross Springsteen", "age" : 28, "height" : 5.7, "eyeColor" : "red" }
+{ "_id" : ObjectId("53151a113a543db604d15ac8"), "type" : "user", "name" : "Jairo Juardo", "age" : 21, "height" : 5.5, "eyeColor" : "brown" }
+{ "_id" : ObjectId("53151a763a543db604d15ac9"), "type" : "user", "name" : "Abel Luteniet", "age" : 24, "height" : 5.5, "eyeColor" : "purple" }
+{ "_id" : ObjectId("53151ad03a543db604d15aca"), "type" : "user", "name" : "Elizabeth Taylor", "age" : 98, "height" : 5.3, "eyeColor" : "purple" }
+{ "_id" : ObjectId("53151b163a543db604d15acb"), "type" : "admin", "name" : "Eward James Olmos" }
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> db.userType.save({type:'user'})
+> db.userType.save({type:'admin'})
+> show collections
+adb1403
+system.indexes
+userType
+> db.userType.find()
+{ "_id" : ObjectId("5317a94f4750238da87ac91b"), "type" : "user" }
+{ "_id" : ObjectId("5317a9594750238da87ac91c"), "type" : "admin" }
+> db.adb1403.distinct('userType')
+[ ]
+> db.adb1403.distinct('type')
+[ "user", "admin" ]
+> x = {type:'user',
+... name: 'Mark Zuckerburg', 
+... age:28,
+... favNum:[1,3,5,7,11]
+... }
+{
+	"type" : "user",
+	"name" : "Mark Zuckerburg",
+	"age" : 28,
+	"favNum" : [
+		1,
+		3,
+		5,
+		7,
+		11
+	]
+}
+> db.adb1403.save({x})
+Wed Mar  5 18:01:19.547 SyntaxError: Unexpected token }
+> db.adb1403.save(x)
+> db.adb1403.find()
+{ "_id" : ObjectId("531515583a543db604d15abf"), "type" : "user", "name" : "John Doe" }
+{ "_id" : ObjectId("531519463a543db604d15ac3"), "type" : "user", "name" : "Cain Hamlet", "age" : 23, "height" : 6.4, "eyeColor" : "green" }
+{ "_id" : ObjectId("531519623a543db604d15ac4"), "type" : "user", "name" : "Tamaki Suo", "age" : 26, "height" : 6.4, "eyeColor" : "blue" }
+{ "_id" : ObjectId("531519953a543db604d15ac5"), "type" : "user", "name" : "Willford Brimley", "age" : 86, "height" : 5.2, "eyeColor" : "brown" }
+{ "_id" : ObjectId("531519db3a543db604d15ac6"), "type" : "user", "name" : "Orcun Person", "age" : 26, "height" : 5.7, "eyeColor" : "brown" }
+{ "_id" : ObjectId("531519f33a543db604d15ac7"), "type" : "user", "name" : "Ross Springsteen", "age" : 28, "height" : 5.7, "eyeColor" : "red" }
+{ "_id" : ObjectId("53151a113a543db604d15ac8"), "type" : "user", "name" : "Jairo Juardo", "age" : 21, "height" : 5.5, "eyeColor" : "brown" }
+{ "_id" : ObjectId("53151a763a543db604d15ac9"), "type" : "user", "name" : "Abel Luteniet", "age" : 24, "height" : 5.5, "eyeColor" : "purple" }
+{ "_id" : ObjectId("53151ad03a543db604d15aca"), "type" : "user", "name" : "Elizabeth Taylor", "age" : 98, "height" : 5.3, "eyeColor" : "purple" }
+{ "_id" : ObjectId("53151b163a543db604d15acb"), "type" : "admin", "name" : "Eward James Olmos" }
+{ "_id" : ObjectId("5317acc64750238da87ac91d"), "type" : "user", "name" : "Mark Zuckerburg", "age" : 28, "favNum" : [  1,  3,  5,  7,  11 ] }
+> x = {type:'user',
+... name:'Ben Forta', 
+... age:58,
+... children:[
+... {name:'Sally',age:4},
+... {name:'Jimmy',age:12}
+... ]
+... }
+{
+	"type" : "user",
+	"name" : "Ben Forta",
+	"age" : 58,
+	"children" : [
+		{
+			"name" : "Sally",
+			"age" : 4
+		},
+		{
+			"name" : "Jimmy",
+			"age" : 12
+		}
+	]
+}
+> db.adb1403.save(x)
+> db.adb1403.find()
+{ "_id" : ObjectId("531515583a543db604d15abf"), "type" : "user", "name" : "John Doe" }
+{ "_id" : ObjectId("531519463a543db604d15ac3"), "type" : "user", "name" : "Cain Hamlet", "age" : 23, "height" : 6.4, "eyeColor" : "green" }
+{ "_id" : ObjectId("531519623a543db604d15ac4"), "type" : "user", "name" : "Tamaki Suo", "age" : 26, "height" : 6.4, "eyeColor" : "blue" }
+{ "_id" : ObjectId("531519953a543db604d15ac5"), "type" : "user", "name" : "Willford Brimley", "age" : 86, "height" : 5.2, "eyeColor" : "brown" }
+{ "_id" : ObjectId("531519db3a543db604d15ac6"), "type" : "user", "name" : "Orcun Person", "age" : 26, "height" : 5.7, "eyeColor" : "brown" }
+{ "_id" : ObjectId("531519f33a543db604d15ac7"), "type" : "user", "name" : "Ross Springsteen", "age" : 28, "height" : 5.7, "eyeColor" : "red" }
+{ "_id" : ObjectId("53151a113a543db604d15ac8"), "type" : "user", "name" : "Jairo Juardo", "age" : 21, "height" : 5.5, "eyeColor" : "brown" }
+{ "_id" : ObjectId("53151a763a543db604d15ac9"), "type" : "user", "name" : "Abel Luteniet", "age" : 24, "height" : 5.5, "eyeColor" : "purple" }
+{ "_id" : ObjectId("53151ad03a543db604d15aca"), "type" : "user", "name" : "Elizabeth Taylor", "age" : 98, "height" : 5.3, "eyeColor" : "purple" }
+{ "_id" : ObjectId("53151b163a543db604d15acb"), "type" : "admin", "name" : "Eward James Olmos" }
+{ "_id" : ObjectId("5317acc64750238da87ac91d"), "type" : "user", "name" : "Mark Zuckerburg", "age" : 28, "favNum" : [  1,  3,  5,  7,  11 ] }
+{ "_id" : ObjectId("5317ad364750238da87ac91e"), "type" : "user", "name" : "Ben Forta", "age" : 58, "children" : [  {  "name" : "Sally",  "age" : 4 },  {  "name" : "Jimmy",  "age" : 12 } ] }
+> db.adbXXXX.insert({_id:0, desc: 'Prime Numbersâ€™, prime:[2,3,5,7,11,13,17,19]});
+... 
+... 
+> 
+> 
+> db.adb1309.find({_id:'c'});
+> db.adb1403.insert({_id:0, desc: 'Prime Numbers', prime:[2,3,5,7,11,13,17,19]});
+> db.adb1403.insert({_id:2, desc: 'Even Numbers', prime:[2,4,6,8,10]});
+> db.adb1403.insert({_id:3, desc: 'Odd Numbers', prime:[1,3,5,7,9]});
+> db.adb1403.update({_id:0},{description: 'stuuf anf Things'})
+> db.adb1403.find({_id:0}).pretty()
+{ "_id" : 0, "description" : "stuuf anf Things" }
+> db.adb1403.update({_id:3},{$set: {weather:'nice'}})
+> db.adb1403.find({_id:3}).pretty()
+{
+	"_id" : 3,
+	"desc" : "Odd Numbers",
+	"prime" : [
+		1,
+		3,
+		5,
+		7,
+		9
+	],
+	"weather" : "nice"
+}
+> db.adb1403.update({_id:3},{$set: {desc:'Really Odd Numbers'}})
+> db.adb1403.find({_id:3}).pretty()
+{
+	"_id" : 3,
+	"desc" : "Really Odd Numbers",
+	"prime" : [
+		1,
+		3,
+		5,
+		7,
+		9
+	],
+	"weather" : "nice"
+}
+> db.adb1403.update({_id:3},{$set: {'prime.1':2}})
+> db.adb1403.find({_id:3}).pretty()
+{
+	"_id" : 3,
+	"desc" : "Really Odd Numbers",
+	"prime" : [
+		1,
+		2,
+		5,
+		7,
+		9
+	],
+	"weather" : "nice"
+}
+> db.adb1403.find({name:'Ben Forta'}).pretty()
+{
+	"_id" : ObjectId("5317ad364750238da87ac91e"),
+	"type" : "user",
+	"name" : "Ben Forta",
+	"age" : 58,
+	"children" : [
+		{
+			"name" : "Sally",
+			"age" : 4
+		},
+		{
+			"name" : "Jimmy",
+			"age" : 12
+		}
+	]
+}
+> db.adb1403.update({name:'Ben Forta'},{$set:{'children.0.age':5}})
+> db.adb1403.find({name:'Ben Forta'}).pretty()
+{
+	"_id" : ObjectId("5317ad364750238da87ac91e"),
+	"type" : "user",
+	"name" : "Ben Forta",
+	"age" : 58,
+	"children" : [
+		{
+			"name" : "Sally",
+			"age" : 5
+		},
+		{
+			"name" : "Jimmy",
+			"age" : 12
+		}
+	]
+}
+> db.adb1403.update({name:'Ben Forta'},{$inc:{'children.0.age':5}})
+> db.adb1403.find({name:'Ben Forta'}).pretty()
+{
+	"_id" : ObjectId("5317ad364750238da87ac91e"),
+	"type" : "user",
+	"name" : "Ben Forta",
+	"age" : 58,
+	"children" : [
+		{
+			"name" : "Sally",
+			"age" : 10
+		},
+		{
+			"name" : "Jimmy",
+			"age" : 12
+		}
+	]
+}
+> db.adb1403.update({name:'Ben Forta'},{$inc:{'children.0.age':-5}})
+> db.adb1403.find({name:'Ben Forta'}).pretty()
+{
+	"_id" : ObjectId("5317ad364750238da87ac91e"),
+	"type" : "user",
+	"name" : "Ben Forta",
+	"age" : 58,
+	"children" : [
+		{
+			"name" : "Sally",
+			"age" : 5
+		},
+		{
+			"name" : "Jimmy",
+			"age" : 12
+		}
+	]
+}
+> db.adb1403.update({_id:3,{$unset:{weather:1}}})
+Wed Mar  5 18:43:33.623 SyntaxError: Unexpected token {
+> db.adb1403.update({_id:3},{$unset:{weather:1}})
+> db.adb1403.find({_id:'3'}).pretty()
+> db.adb1403.find({_id:3}).pretty()
+{
+	"_id" : 3,
+	"desc" : "Really Odd Numbers",
+	"prime" : [
+		1,
+		2,
+		5,
+		7,
+		9
+	]
+}
+> db.adb1403.find({_id:3},{$push:{prime:11}})
+error: { "$err" : "Unsupported projection option: prime", "code" : 13097 }
+> db.adb1403.find({_id:3},{$push:{'prime':11}})
+error: { "$err" : "Unsupported projection option: prime", "code" : 13097 }
+> db.adb1403.update({_id:3},{$push:{prime:11}})
+> db.adb1403.find({_id:3}).pretty()
+{
+	"_id" : 3,
+	"desc" : "Really Odd Numbers",
+	"prime" : [
+		1,
+		2,
+		5,
+		7,
+		9,
+		11
+	]
+}
+> db.adb1403.update({_id:3},{$pushAll:{prime:[13,15,17,19]}})
+> db.adb1403.find({_id:3}).pretty()
+{
+	"_id" : 3,
+	"desc" : "Really Odd Numbers",
+	"prime" : [
+		1,
+		2,
+		5,
+		7,
+		9,
+		11,
+		13,
+		15,
+		17,
+		19
+	]
+}
+> db.adb1403.update({_id:3},{$push:{prime:[13,15,17,19]}})
+> db.adb1403.find({_id:3}).pretty()
+{
+	"_id" : 3,
+	"desc" : "Really Odd Numbers",
+	"prime" : [
+		1,
+		2,
+		5,
+		7,
+		9,
+		11,
+		13,
+		15,
+		17,
+		19,
+		[
+			13,
+			15,
+			17,
+			19
+		]
+	]
+}
+> db.adb1403.update({_id:3},{$pop:{prime:1}})
+> db.adb1403.find({_id:3}).pretty()
+{
+	"_id" : 3,
+	"desc" : "Really Odd Numbers",
+	"prime" : [
+		1,
+		2,
+		5,
+		7,
+		9,
+		11,
+		13,
+		15,
+		17,
+		19
+	]
+}
+> db.adb1403.update({_id:3},{$pull:{prime:2}})
+> db.adb1403.find({_id:3}).pretty()
+{
+	"_id" : 3,
+	"desc" : "Really Odd Numbers",
+	"prime" : [
+		1,
+		5,
+		7,
+		9,
+		11,
+		13,
+		15,
+		17,
+		19
+	]
+}
+> db.adb1403.getIndexes()
+[
+	{
+		"v" : 1,
+		"key" : {
+			"_id" : 1
+		},
+		"ns" : "adb1403.adb1403",
+		"name" : "_id_"
+	}
+]
+> db.adb1403.getIndexKeys()
+[ { "_id" : 1 } ]
+> db.adb1403.ensureIndex({name:1})
+> 
+> 
+> db.adb1403.getIndexKeys()
+[ { "_id" : 1 }, { "name" : 1 } ]
+> db.adb1403.reIndex()
+{
+	"nIndexesWas" : 2,
+	"msg" : "indexes dropped for collection",
+	"nIndexes" : 2,
+	"indexes" : [
+		{
+			"key" : {
+				"_id" : 1
+			},
+			"ns" : "adb1403.adb1403",
+			"name" : "_id_"
+		},
+		{
+			"key" : {
+				"name" : 1
+			},
+			"ns" : "adb1403.adb1403",
+			"name" : "name_1"
+		}
+	],
+	"ok" : 1
+}
+> help
+	db.help()                    help on db methods
+	db.mycoll.help()             help on collection methods
+	sh.help()                    sharding helpers
+	rs.help()                    replica set helpers
+	help admin                   administrative help
+	help connect                 connecting to a db help
+	help keys                    key shortcuts
+	help misc                    misc things to know
+	help mr                      mapreduce
+
+	show dbs                     show database names
+	show collections             show collections in current database
+	show users                   show users in current database
+	show profile                 show most recent system.profile entries with time >= 1ms
+	show logs                    show the accessible logger names
+	show log [name]              prints out the last segment of log in memory, 'global' is default
+	use <db_name>                set current database
+	db.foo.find()                list objects in collection foo
+	db.foo.find( { a : 1 } )     list objects in foo where a == 1
+	it                           result of the last line evaluated; use to further iterate
+	DBQuery.shellBatchSize = x   set default number of items to display on shell
+	exit                         quit the mongo shell
+> db.adb1403.hrlp
+adb1403.adb1403.hrlp
+> db.adb1403.help()
+DBCollection help
+	db.adb1403.find().help() - show DBCursor help
+	db.adb1403.count()
+	db.adb1403.copyTo(newColl) - duplicates collection by copying all documents to newColl; no indexes are copied.
+	db.adb1403.convertToCapped(maxBytes) - calls {convertToCapped:'adb1403', size:maxBytes}} command
+	db.adb1403.dataSize()
+	db.adb1403.distinct( key ) - e.g. db.adb1403.distinct( 'x' )
+	db.adb1403.drop() drop the collection
+	db.adb1403.dropIndex(index) - e.g. db.adb1403.dropIndex( "indexName" ) or db.adb1403.dropIndex( { "indexKey" : 1 } )
+	db.adb1403.dropIndexes()
+	db.adb1403.ensureIndex(keypattern[,options]) - options is an object with these possible fields: name, unique, dropDups
+	db.adb1403.reIndex()
+	db.adb1403.find([query],[fields]) - query is an optional query filter. fields is optional set of fields to return.
+	                                              e.g. db.adb1403.find( {x:77} , {name:1, x:1} )
+	db.adb1403.find(...).count()
+	db.adb1403.find(...).limit(n)
+	db.adb1403.find(...).skip(n)
+	db.adb1403.find(...).sort(...)
+	db.adb1403.findOne([query])
+	db.adb1403.findAndModify( { update : ... , remove : bool [, query: {}, sort: {}, 'new': false] } )
+	db.adb1403.getDB() get DB object associated with collection
+	db.adb1403.getIndexes()
+	db.adb1403.group( { key : ..., initial: ..., reduce : ...[, cond: ...] } )
+	db.adb1403.insert(obj)
+	db.adb1403.mapReduce( mapFunction , reduceFunction , <optional params> )
+	db.adb1403.remove(query)
+	db.adb1403.renameCollection( newName , <dropTarget> ) renames the collection.
+	db.adb1403.runCommand( name , <options> ) runs a db command with the given name where the first param is the collection name
+	db.adb1403.save(obj)
+	db.adb1403.stats()
+	db.adb1403.storageSize() - includes free space allocated to this collection
+	db.adb1403.totalIndexSize() - size in bytes of all the indexes
+	db.adb1403.totalSize() - storage allocated for all data and indexes
+	db.adb1403.update(query, object[, upsert_bool, multi_bool]) - instead of two flags, you can pass an object with fields: upsert, multi
+	db.adb1403.validate( <full> ) - SLOW
+	db.adb1403.getShardVersion() - only for use with sharding
+	db.adb1403.getShardDistribution() - prints statistics about data distribution in the cluster
+	db.adb1403.getSplitKeysForChunks( <maxChunkSize> ) - calculates split points over all chunks and returns splitter function
+> use itunes
+switched to db itunes
+> show collections
+itunes
+system.indexes
+> db.itunes.find().pretty
+function (){
+    this._prettyShell = true;
+    return this;
+}
+> db.itunes.find().count()
+2101
+> db.itunes.find().pretty()
+{
+	"_id" : "library:27e94527d648529c",
+	"MinorVersion" : 1,
+	"ApplicationVersion" : "11.1.4",
+	"Date" : ISODate("2014-03-04T07:53:52Z"),
+	"MusicFolder" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/",
+	"type" : "library",
+	"ShowContentRatings" : false,
+	"LibraryPersistentID" : "27E94527D648529C",
+	"Features" : 5,
+	"MajorVersion" : 1
+}
+{
+	"_id" : "track:fffd409ed41fbc54",
+	"PlayCount" : 2,
+	"AlbumArtist" : "Kanye West",
+	"SkipDate" : [
+		2013,
+		8,
+		6,
+		19,
+		51,
+		43
+	],
+	"TrackType" : "File",
+	"TrackID" : 554,
+	"type" : "track",
+	"Kind" : "AAC audio file",
+	"Year" : 2008,
+	"TrackNumber" : 1,
+	"Composer" : "Kanye West, Dexter Mills, Jeff Bhasker & Jay Jenkins",
+	"Genre" : "Hip-Hop/Rap",
+	"DiscCount" : 1,
+	"PlayDateUTC" : [
+		2013,
+		8,
+		5,
+		20,
+		20,
+		47
+	],
+	"FileFolderCount" : 5,
+	"ArtworkCount" : 1,
+	"Artist" : "Kanye West",
+	"PlayDate" : NumberLong("3461930447"),
+	"Album" : "808s & Heartbreak",
+	"Size" : 15652304,
+	"albumkey" : "album:808sheartbreak",
+	"SkipCount" : 2,
+	"TrackCount" : 12,
+	"LibraryFolderCount" : 1,
+	"DateAdded" : [
+		2012,
+		8,
+		4,
+		2,
+		14,
+		55
+	],
+	"SampleRate" : 44100,
+	"Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/808s%20&%20Heartbreak/01%20Say%20You%20Will.m4a",
+	"PersistentID" : "FFFD409ED41FBC54",
+	"DiscNumber" : 1,
+	"TotalTime" : 377600,
+	"Name" : "Say You Will",
+	"SortAlbum" : "808s & Heartbreak",
+	"DateModified" : [
+		2012,
+		8,
+		4,
+		2,
+		6,
+		10
+	],
+	"SortArtist" : "Kanye West",
+	"BitRate" : 320,
+	"artistkey" : "artist:kanyewest",
+	"ReleaseDate" : ISODate("2008-11-23T17:00:00Z")
+}
+{
+	"_id" : "track:65425689df9a2518",
+	"AlbumArtist" : "Kanye West",
+	"TrackType" : "File",
+	"TrackID" : 556,
+	"type" : "track",
+	"Kind" : "AAC audio file",
+	"Year" : 2008,
+	"TrackNumber" : 2,
+	"Composer" : "Kanye West, Jeff Bhasker, Patrick Reynolds & Scott Mescudi",
+	"Genre" : "Hip-Hop/Rap",
+	"DiscCount" : 1,
+	"FileFolderCount" : 5,
+	"ArtworkCount" : 1,
+	"Artist" : "Kanye West",
+	"Album" : "808s & Heartbreak",
+	"Size" : 10851715,
+	"albumkey" : "album:808sheartbreak",
+	"TrackCount" : 12,
+	"LibraryFolderCount" : 1,
+	"DateAdded" : [
+		2012,
+		8,
+		4,
+		2,
+		14,
+		55
+	],
+	"SampleRate" : 44100,
+	"Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/808s%20&%20Heartbreak/02%20Welcome%20To%20Heartbreak%20(Feat.%20Kid%20Cudi).m4a",
+	"PersistentID" : "65425689DF9A2518",
+	"DiscNumber" : 1,
+	"TotalTime" : 262933,
+	"Name" : "Welcome To Heartbreak (Feat. Kid Cudi)",
+	"SortAlbum" : "808s & Heartbreak",
+	"DateModified" : [
+		2012,
+		8,
+		4,
+		2,
+		5,
+		10
+	],
+	"SortArtist" : "Kanye West",
+	"BitRate" : 320,
+	"artistkey" : "artist:kanyewest",
+	"ReleaseDate" : ISODate("2008-11-23T17:00:00Z")
+}
+{
+	"_id" : "album:headlinessingle",
+	"Album" : "Headlines - Single",
+	"type" : "album",
+	"tracks" : [
+		"track:d3e93943b2652bde"
+	]
+}
+{
+	"_id" : "album:autolaser",
+	"Album" : "AutoLaser ",
+	"type" : "album",
+	"tracks" : [
+		"track:0337c0c13e5f9c53",
+		"track:bef273b44f9def9a"
+	]
+}
+{
+	"_id" : "track:0aa9a8640c998a35",
+	"PlayCount" : 4,
+	"AlbumArtist" : "Kanye West",
+	"SkipDate" : [
+		2013,
+		8,
+		6,
+		19,
+		51,
+		47
+	],
+	"TrackType" : "File",
+	"TrackID" : 558,
+	"type" : "track",
+	"Kind" : "AAC audio file",
+	"Year" : 2008,
+	"TrackNumber" : 3,
+	"Composer" : "Kanye West, NO I.D., Scott Mescudi & Malik Yusef Jones",
+	"Genre" : "Hip-Hop/Rap",
+	"DiscCount" : 1,
+	"PlayDateUTC" : [
+		2013,
+		10,
+		2,
+		14,
+		52,
+		53
+	],
+	"FileFolderCount" : 5,
+	"ArtworkCount" : 1,
+	"Artist" : "Kanye West",
+	"PlayDate" : NumberLong("3468304373"),
+	"Album" : "808s & Heartbreak",
+	"Size" : 8793570,
+	"albumkey" : "album:808sheartbreak",
+	"SkipCount" : 1,
+	"TrackCount" : 12,
+	"LibraryFolderCount" : 1,
+	"DateAdded" : [
+		2012,
+		8,
+		4,
+		2,
+		14,
+		55
+	],
+	"SampleRate" : 44100,
+	"Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/808s%20&%20Heartbreak/03%20Heartless.m4a",
+	"PersistentID" : "0AA9A8640C998A35",
+	"DiscNumber" : 1,
+	"TotalTime" : 211000,
+	"Name" : "Heartless",
+	"SortAlbum" : "808s & Heartbreak",
+	"DateModified" : [
+		2012,
+		8,
+		4,
+		2,
+		5,
+		8
+	],
+	"SortArtist" : "Kanye West",
+	"BitRate" : 320,
+	"artistkey" : "artist:kanyewest",
+	"ReleaseDate" : ISODate("2008-11-23T17:00:00Z")
+}
+{
+	"_id" : "track:37356f89e5250390",
+	"PlayCount" : 5,
+	"AlbumArtist" : "Kanye West",
+	"TrackType" : "File",
+	"TrackID" : 560,
+	"type" : "track",
+	"Kind" : "AAC audio file",
+	"Year" : 2008,
+	"TrackNumber" : 4,
+	"Composer" : "Kanye West, Malik Yusef Jones, Dexter Mills, Jeff Bhasker & Jay Jenkins",
+	"Genre" : "Hip-Hop/Rap",
+	"DiscCount" : 1,
+	"PlayDateUTC" : [
+		2013,
+		10,
+		2,
+		14,
+		56,
+		51
+	],
+	"FileFolderCount" : 5,
+	"ArtworkCount" : 1,
+	"Artist" : "Kanye West",
+	"PlayDate" : NumberLong("3468304611"),
+	"Album" : "808s & Heartbreak",
+	"Size" : 9846618,
+	"albumkey" : "album:808sheartbreak",
+	"TrackCount" : 12,
+	"LibraryFolderCount" : 1,
+	"DateAdded" : [
+		2012,
+		8,
+		4,
+		2,
+		14,
+		55
+	],
+	"SampleRate" : 44100,
+	"Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/808s%20&%20Heartbreak/04%20Amazing%20(Feat.%20Young%20Jeezy).m4a",
+	"PersistentID" : "37356F89E5250390",
+	"DiscNumber" : 1,
+	"TotalTime" : 238333,
+	"Name" : "Amazing (Feat. Young Jeezy)",
+	"SortAlbum" : "808s & Heartbreak",
+	"DateModified" : [
+		2012,
+		8,
+		4,
+		1,
+		59,
+		12
+	],
+	"SortArtist" : "Kanye West",
+	"BitRate" : 320,
+	"artistkey" : "artist:kanyewest",
+	"ReleaseDate" : ISODate("2008-11-23T17:00:00Z")
+}
+{
+	"_id" : "track:875a4fe29ecee9bd",
+	"PlayCount" : 5,
+	"AlbumArtist" : "Kanye West",
+	"SkipDate" : [
+		2013,
+		10,
+		0,
+		22,
+		8,
+		54
+	],
+	"TrackType" : "File",
+	"TrackID" : 562,
+	"type" : "track",
+	"Kind" : "AAC audio file",
+	"Year" : 2008,
+	"TrackNumber" : 5,
+	"Composer" : "Kanye West, Jeff Bhasker, Jenny-Bea Englishman, Malik Yusef Jones & LaNeah Menzies",
+	"Genre" : "Hip-Hop/Rap",
+	"DiscCount" : 1,
+	"PlayDateUTC" : [
+		2013,
+		10,
+		2,
+		15,
+		1,
+		21
+	],
+	"FileFolderCount" : 5,
+	"ArtworkCount" : 1,
+	"Artist" : "Kanye West",
+	"PlayDate" : NumberLong("3468304881"),
+	"Album" : "808s & Heartbreak",
+	"Size" : 11287767,
+	"albumkey" : "album:808sheartbreak",
+	"SkipCount" : 2,
+	"TrackCount" : 12,
+	"LibraryFolderCount" : 1,
+	"DateAdded" : [
+		2012,
+		8,
+		4,
+		2,
+		14,
+		55
+	],
+	"SampleRate" : 44100,
+	"Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/808s%20&%20Heartbreak/05%20Love%20Lockdown.m4a",
+	"PersistentID" : "875A4FE29ECEE9BD",
+	"DiscNumber" : 1,
+	"TotalTime" : 270306,
+	"Name" : "Love Lockdown",
+	"SortAlbum" : "808s & Heartbreak",
+	"DateModified" : [
+		2012,
+		8,
+		4,
+		2,
+		8,
+		12
+	],
+	"SortArtist" : "Kanye West",
+	"BitRate" : 320,
+	"artistkey" : "artist:kanyewest",
+	"ReleaseDate" : ISODate("2008-11-23T17:00:00Z")
+}
+{
+	"_id" : "track:39f6fc04c3a8fc22",
+	"PlayCount" : 2,
+	"AlbumArtist" : "Kanye West",
+	"SkipDate" : [
+		2013,
+		8,
+		5,
+		18,
+		57,
+		5
+	],
+	"TrackType" : "File",
+	"TrackID" : 564,
+	"type" : "track",
+	"Kind" : "AAC audio file",
+	"Year" : 2008,
+	"TrackNumber" : 6,
+	"Composer" : "Kanye West, Patrick Reynolds, Scott Mescudi, Dexter Mills & Jeff Bhasker",
+	"Genre" : "Hip-Hop/Rap",
+	"DiscCount" : 1,
+	"PlayDateUTC" : [
+		2013,
+		10,
+		2,
+		15,
+		8,
+		42
+	],
+	"FileFolderCount" : 5,
+	"ArtworkCount" : 1,
+	"Artist" : "Kanye West",
+	"PlayDate" : NumberLong("3468305322"),
+	"Album" : "808s & Heartbreak",
+	"Size" : 11496442,
+	"albumkey" : "album:808sheartbreak",
+	"SkipCount" : 1,
+	"TrackCount" : 12,
+	"LibraryFolderCount" : 1,
+	"DateAdded" : [
+		2012,
+		8,
+		4,
+		2,
+		14,
+		55
+	],
+	"SampleRate" : 44100,
+	"Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/808s%20&%20Heartbreak/06%20Paranoid%20(Feat.%20Mr.%20Hudson).m4a",
+	"PersistentID" : "39F6FC04C3A8FC22",
+	"DiscNumber" : 1,
+	"TotalTime" : 277906,
+	"Name" : "Paranoid (Feat. Mr. Hudson)",
+	"SortAlbum" : "808s & Heartbreak",
+	"DateModified" : [
+		2012,
+		8,
+		4,
+		2,
+		6,
+		6
+	],
+	"SortArtist" : "Kanye West",
+	"BitRate" : 320,
+	"artistkey" : "artist:kanyewest",
+	"ReleaseDate" : ISODate("2008-11-23T17:00:00Z")
+}
+{
+	"_id" : "track:4d9d6f2c2c00eab5",
+	"PlayCount" : 1,
+	"AlbumArtist" : "Kanye West",
+	"TrackType" : "File",
+	"TrackID" : 566,
+	"type" : "track",
+	"Kind" : "AAC audio file",
+	"Year" : 2008,
+	"TrackNumber" : 7,
+	"Composer" : "Kanye West, Jenny-Bea Englishman, Malik Yusef Jones, Dexter Mills, Scott Mescudi, Anthony Williams, Jeff Bhasker, Faheem Najm, Jay Jenkins & Patrick Doyle",
+	"Genre" : "Hip-Hop/Rap",
+	"DiscCount" : 1,
+	"PlayDateUTC" : [
+		2013,
+		10,
+		0,
+		22,
+		30,
+		6
+	],
+	"FileFolderCount" : 5,
+	"ArtworkCount" : 1,
+	"Artist" : "Kanye West",
+	"PlayDate" : NumberLong("3466344606"),
+	"Album" : "808s & Heartbreak",
+	"Size" : 11350058,
+	"albumkey" : "album:808sheartbreak",
+	"TrackCount" : 12,
+	"LibraryFolderCount" : 1,
+	"DateAdded" : [
+		2012,
+		8,
+		4,
+		2,
+		14,
+		55
+	],
+	"SampleRate" : 44100,
+	"Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/808s%20&%20Heartbreak/07%20RoboCop.m4a",
+	"PersistentID" : "4D9D6F2C2C00EAB5",
+	"DiscNumber" : 1,
+	"TotalTime" : 274360,
+	"Name" : "RoboCop",
+	"SortAlbum" : "808s & Heartbreak",
+	"DateModified" : [
+		2012,
+		8,
+		4,
+		2,
+		6,
+		12
+	],
+	"SortArtist" : "Kanye West",
+	"BitRate" : 320,
+	"artistkey" : "artist:kanyewest",
+	"ReleaseDate" : ISODate("2008-11-23T17:00:00Z")
+}
+{
+	"_id" : "track:6ac60d5064445829",
+	"PlayCount" : 1,
+	"AlbumArtist" : "Kanye West",
+	"SkipDate" : [
+		2013,
+		10,
+		2,
+		15,
+		11,
+		52
+	],
+	"TrackType" : "File",
+	"TrackID" : 568,
+	"type" : "track",
+	"Kind" : "AAC audio file",
+	"Year" : 2008,
+	"TrackNumber" : 8,
+	"Composer" : "Kanye West, Jenny-Bea Englishman, Anthony Williams & Benjamin McIldowie",
+	"Genre" : "Hip-Hop/Rap",
+	"DiscCount" : 1,
+	"PlayDateUTC" : [
+		2013,
+		10,
+		0,
+		22,
+		33,
+		16
+	],
+	"FileFolderCount" : 5,
+	"ArtworkCount" : 1,
+	"Artist" : "Kanye West",
+	"PlayDate" : NumberLong("3466344796"),
+	"Album" : "808s & Heartbreak",
+	"Size" : 7880420,
+	"albumkey" : "album:808sheartbreak",
+	"SkipCount" : 1,
+	"TrackCount" : 12,
+	"LibraryFolderCount" : 1,
+	"DateAdded" : [
+		2012,
+		8,
+		4,
+		2,
+		14,
+		55
+	],
+	"SampleRate" : 44100,
+	"Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/808s%20&%20Heartbreak/08%20Street%20Lights.m4a",
+	"PersistentID" : "6AC60D5064445829",
+	"DiscNumber" : 1,
+	"TotalTime" : 189906,
+	"Name" : "Street Lights",
+	"SortAlbum" : "808s & Heartbreak",
+	"DateModified" : [
+		2012,
+		8,
+		4,
+		2,
+		6,
+		10
+	],
+	"SortArtist" : "Kanye West",
+	"BitRate" : 320,
+	"artistkey" : "artist:kanyewest",
+	"ReleaseDate" : ISODate("2008-11-23T17:00:00Z")
+}
+{
+	"_id" : "track:f35ac1efb25d86b2",
+	"PlayCount" : 1,
+	"AlbumArtist" : "Kanye West",
+	"TrackType" : "File",
+	"TrackID" : 570,
+	"type" : "track",
+	"Kind" : "AAC audio file",
+	"Year" : 2008,
+	"TrackNumber" : 9,
+	"Composer" : "Kanye West & George Bass",
+	"Genre" : "Hip-Hop/Rap",
+	"DiscCount" : 1,
+	"PlayDateUTC" : [
+		2013,
+		10,
+		0,
+		22,
+		37,
+		14
+	],
+	"FileFolderCount" : 5,
+	"ArtworkCount" : 1,
+	"Artist" : "Kanye West",
+	"PlayDate" : NumberLong("3466345034"),
+	"Album" : "808s & Heartbreak",
+	"Size" : 9820787,
+	"albumkey" : "album:808sheartbreak",
+	"TrackCount" : 12,
+	"LibraryFolderCount" : 1,
+	"DateAdded" : [
+		2012,
+		8,
+		4,
+		2,
+		14,
+		55
+	],
+	"SampleRate" : 44100,
+	"Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/808s%20&%20Heartbreak/09%20Bad%20News.m4a",
+	"PersistentID" : "F35AC1EFB25D86B2",
+	"DiscNumber" : 1,
+	"TotalTime" : 238800,
+	"Name" : "Bad News",
+	"SortAlbum" : "808s & Heartbreak",
+	"DateModified" : [
+		2012,
+		8,
+		4,
+		2,
+		4,
+		15
+	],
+	"SortArtist" : "Kanye West",
+	"BitRate" : 320,
+	"artistkey" : "artist:kanyewest",
+	"ReleaseDate" : ISODate("2008-11-23T17:00:00Z")
+}
+{
+	"_id" : "track:fe51122d18c6c87e",
+	"PlayCount" : 1,
+	"AlbumArtist" : "Kanye West",
+	"TrackType" : "File",
+	"TrackID" : 572,
+	"type" : "track",
+	"Kind" : "AAC audio file",
+	"Year" : 2008,
+	"TrackNumber" : 10,
+	"Composer" : "Kanye West, NO I.D., Jeff Bhasker & Dwayne Carter",
+	"Genre" : "Hip-Hop/Rap",
+	"DiscCount" : 1,
+	"PlayDateUTC" : [
+		2013,
+		10,
+		0,
+		22,
+		41,
+		32
+	],
+	"FileFolderCount" : 5,
+	"ArtworkCount" : 1,
+	"Artist" : "Kanye West",
+	"PlayDate" : NumberLong("3466345292"),
+	"Album" : "808s & Heartbreak",
+	"Size" : 10649215,
+	"albumkey" : "album:808sheartbreak",
+	"TrackCount" : 12,
+	"LibraryFolderCount" : 1,
+	"DateAdded" : [
+		2012,
+		8,
+		4,
+		2,
+		14,
+		55
+	],
+	"SampleRate" : 44100,
+	"Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/808s%20&%20Heartbreak/10%20See%20You%20In%20My%20Nightmares%20(Feat.%20Lil%20Wayne).m4a",
+	"PersistentID" : "FE51122D18C6C87E",
+	"DiscNumber" : 1,
+	"TotalTime" : 258093,
+	"Name" : "See You In My Nightmares (Feat. Lil Wayne)",
+	"SortAlbum" : "808s & Heartbreak",
+	"DateModified" : [
+		2012,
+		8,
+		4,
+		2,
+		6,
+		20
+	],
+	"SortArtist" : "Kanye West",
+	"BitRate" : 320,
+	"artistkey" : "artist:kanyewest",
+	"ReleaseDate" : ISODate("2008-11-23T17:00:00Z")
+}
+{
+	"_id" : "track:b4d8063fd7e1cd18",
+	"PlayCount" : 1,
+	"AlbumArtist" : "Kanye West",
+	"SkipDate" : [
+		2013,
+		7,
+		4,
+		14,
+		7,
+		36
+	],
+	"TrackType" : "File",
+	"TrackID" : 574,
+	"type" : "track",
+	"Kind" : "AAC audio file",
+	"Year" : 2008,
+	"TrackNumber" : 11,
+	"Composer" : "Kanye West, Roland Orzabal & NO I.D.",
+	"Genre" : "Hip-Hop/Rap",
+	"DiscCount" : 1,
+	"PlayDateUTC" : [
+		2013,
+		10,
+		0,
+		22,
+		44,
+		17
+	],
+	"FileFolderCount" : 5,
+	"ArtworkCount" : 1,
+	"Artist" : "Kanye West",
+	"PlayDate" : NumberLong("3466345457"),
+	"Album" : "808s & Heartbreak",
+	"Size" : 6845520,
+	"albumkey" : "album:808sheartbreak",
+	"SkipCount" : 1,
+	"TrackCount" : 12,
+	"LibraryFolderCount" : 1,
+	"DateAdded" : [
+		2012,
+		8,
+		4,
+		2,
+		14,
+		55
+	],
+	"SampleRate" : 44100,
+	"Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/808s%20&%20Heartbreak/11%20Coldest%20Winter.m4a",
+	"PersistentID" : "B4D8063FD7E1CD18",
+	"DiscNumber" : 1,
+	"TotalTime" : 164360,
+	"Name" : "Coldest Winter",
+	"SortAlbum" : "808s & Heartbreak",
+	"DateModified" : [
+		2012,
+		8,
+		4,
+		2,
+		6,
+		20
+	],
+	"SortArtist" : "Kanye West",
+	"BitRate" : 320,
+	"artistkey" : "artist:kanyewest",
+	"ReleaseDate" : ISODate("2008-11-23T17:00:00Z")
+}
+{
+	"_id" : "album:808sheartbreak",
+	"Album" : "808s & Heartbreak",
+	"type" : "album",
+	"tracks" : [
+		"track:fffd409ed41fbc54",
+		"track:65425689df9a2518",
+		"track:0aa9a8640c998a35",
+		"track:37356f89e5250390",
+		"track:875a4fe29ecee9bd",
+		"track:39f6fc04c3a8fc22",
+		"track:4d9d6f2c2c00eab5",
+		"track:6ac60d5064445829",
+		"track:f35ac1efb25d86b2",
+		"track:fe51122d18c6c87e",
+		"track:b4d8063fd7e1cd18",
+		"track:a36985799471266e"
+	]
+}
+{
+	"_id" : "album:makemeproudfeatnickiminajsingle",
+	"Album" : "Make Me Proud (Feat. Nicki Minaj) - Single",
+	"type" : "album",
+	"tracks" : [
+		"track:da0f91c42a9debdb"
+	]
+}
+{
+	"_id" : "album:theleakep",
+	"Album" : "The Leak - EP",
+	"type" : "album",
+	"tracks" : [
+		"track:49987345d34be6c1",
+		"track:40b53ea4f2c86412",
+		"track:ce04e09cdadff68b",
+		"track:500a7ec7d5a52317",
+		"track:ab9cc7fe40318dc4"
+	]
+}
+{
+	"_id" : "album:5oclockfeatwizkhalifalilyallensingle",
+	"Album" : "5 O'Clock (Feat. Wiz Khalifa & Lily Allen) - Single",
+	"type" : "album",
+	"tracks" : [
+		"track:fa2468f7538de860"
+	]
+}
+{
+	"_id" : "album:bestlovesongfeatchrisbrownsingle",
+	"Album" : "Best Love Song (Feat. Chris Brown) - Single",
+	"type" : "album",
+	"tracks" : [
+		"track:5a1fa38891c7422e"
+	]
+}
+{
+	"_id" : "album:bootywurkonecheekatatimefeatjoeygalaxysingle",
+	"Album" : "Booty Wurk (One Cheek At A Time) [Feat. Joey Galaxy] - Single",
+	"type" : "album",
+	"tracks" : [
+		"track:8bdf2df13ade4bd5"
+	]
+}
+Type "it" for more
+> db.itunes.find({type:'track'})
+{ "_id" : "track:fffd409ed41fbc54", "PlayCount" : 2, "AlbumArtist" : "Kanye West", "SkipDate" : [  2013,  8,  6,  19,  51,  43 ], "TrackType" : "File", "TrackID" : 554, "type" : "track", "Kind" : "AAC audio file", "Year" : 2008, "TrackNumber" : 1, "Composer" : "Kanye West, Dexter Mills, Jeff Bhasker & Jay Jenkins", "Genre" : "Hip-Hop/Rap", "DiscCount" : 1, "PlayDateUTC" : [  2013,  8,  5,  20,  20,  47 ], "FileFolderCount" : 5, "ArtworkCount" : 1, "Artist" : "Kanye West", "PlayDate" : NumberLong("3461930447"), "Album" : "808s & Heartbreak", "Size" : 15652304, "albumkey" : "album:808sheartbreak", "SkipCount" : 2, "TrackCount" : 12, "LibraryFolderCount" : 1, "DateAdded" : [  2012,  8,  4,  2,  14,  55 ], "SampleRate" : 44100, "Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/808s%20&%20Heartbreak/01%20Say%20You%20Will.m4a", "PersistentID" : "FFFD409ED41FBC54", "DiscNumber" : 1, "TotalTime" : 377600, "Name" : "Say You Will", "SortAlbum" : "808s & Heartbreak", "DateModified" : [  2012,  8,  4,  2,  6,  10 ], "SortArtist" : "Kanye West", "BitRate" : 320, "artistkey" : "artist:kanyewest", "ReleaseDate" : ISODate("2008-11-23T17:00:00Z") }
+{ "_id" : "track:65425689df9a2518", "AlbumArtist" : "Kanye West", "TrackType" : "File", "TrackID" : 556, "type" : "track", "Kind" : "AAC audio file", "Year" : 2008, "TrackNumber" : 2, "Composer" : "Kanye West, Jeff Bhasker, Patrick Reynolds & Scott Mescudi", "Genre" : "Hip-Hop/Rap", "DiscCount" : 1, "FileFolderCount" : 5, "ArtworkCount" : 1, "Artist" : "Kanye West", "Album" : "808s & Heartbreak", "Size" : 10851715, "albumkey" : "album:808sheartbreak", "TrackCount" : 12, "LibraryFolderCount" : 1, "DateAdded" : [  2012,  8,  4,  2,  14,  55 ], "SampleRate" : 44100, "Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/808s%20&%20Heartbreak/02%20Welcome%20To%20Heartbreak%20(Feat.%20Kid%20Cudi).m4a", "PersistentID" : "65425689DF9A2518", "DiscNumber" : 1, "TotalTime" : 262933, "Name" : "Welcome To Heartbreak (Feat. Kid Cudi)", "SortAlbum" : "808s & Heartbreak", "DateModified" : [  2012,  8,  4,  2,  5,  10 ], "SortArtist" : "Kanye West", "BitRate" : 320, "artistkey" : "artist:kanyewest", "ReleaseDate" : ISODate("2008-11-23T17:00:00Z") }
+{ "_id" : "track:0aa9a8640c998a35", "PlayCount" : 4, "AlbumArtist" : "Kanye West", "SkipDate" : [  2013,  8,  6,  19,  51,  47 ], "TrackType" : "File", "TrackID" : 558, "type" : "track", "Kind" : "AAC audio file", "Year" : 2008, "TrackNumber" : 3, "Composer" : "Kanye West, NO I.D., Scott Mescudi & Malik Yusef Jones", "Genre" : "Hip-Hop/Rap", "DiscCount" : 1, "PlayDateUTC" : [  2013,  10,  2,  14,  52,  53 ], "FileFolderCount" : 5, "ArtworkCount" : 1, "Artist" : "Kanye West", "PlayDate" : NumberLong("3468304373"), "Album" : "808s & Heartbreak", "Size" : 8793570, "albumkey" : "album:808sheartbreak", "SkipCount" : 1, "TrackCount" : 12, "LibraryFolderCount" : 1, "DateAdded" : [  2012,  8,  4,  2,  14,  55 ], "SampleRate" : 44100, "Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/808s%20&%20Heartbreak/03%20Heartless.m4a", "PersistentID" : "0AA9A8640C998A35", "DiscNumber" : 1, "TotalTime" : 211000, "Name" : "Heartless", "SortAlbum" : "808s & Heartbreak", "DateModified" : [  2012,  8,  4,  2,  5,  8 ], "SortArtist" : "Kanye West", "BitRate" : 320, "artistkey" : "artist:kanyewest", "ReleaseDate" : ISODate("2008-11-23T17:00:00Z") }
+{ "_id" : "track:37356f89e5250390", "PlayCount" : 5, "AlbumArtist" : "Kanye West", "TrackType" : "File", "TrackID" : 560, "type" : "track", "Kind" : "AAC audio file", "Year" : 2008, "TrackNumber" : 4, "Composer" : "Kanye West, Malik Yusef Jones, Dexter Mills, Jeff Bhasker & Jay Jenkins", "Genre" : "Hip-Hop/Rap", "DiscCount" : 1, "PlayDateUTC" : [  2013,  10,  2,  14,  56,  51 ], "FileFolderCount" : 5, "ArtworkCount" : 1, "Artist" : "Kanye West", "PlayDate" : NumberLong("3468304611"), "Album" : "808s & Heartbreak", "Size" : 9846618, "albumkey" : "album:808sheartbreak", "TrackCount" : 12, "LibraryFolderCount" : 1, "DateAdded" : [  2012,  8,  4,  2,  14,  55 ], "SampleRate" : 44100, "Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/808s%20&%20Heartbreak/04%20Amazing%20(Feat.%20Young%20Jeezy).m4a", "PersistentID" : "37356F89E5250390", "DiscNumber" : 1, "TotalTime" : 238333, "Name" : "Amazing (Feat. Young Jeezy)", "SortAlbum" : "808s & Heartbreak", "DateModified" : [  2012,  8,  4,  1,  59,  12 ], "SortArtist" : "Kanye West", "BitRate" : 320, "artistkey" : "artist:kanyewest", "ReleaseDate" : ISODate("2008-11-23T17:00:00Z") }
+{ "_id" : "track:875a4fe29ecee9bd", "PlayCount" : 5, "AlbumArtist" : "Kanye West", "SkipDate" : [  2013,  10,  0,  22,  8,  54 ], "TrackType" : "File", "TrackID" : 562, "type" : "track", "Kind" : "AAC audio file", "Year" : 2008, "TrackNumber" : 5, "Composer" : "Kanye West, Jeff Bhasker, Jenny-Bea Englishman, Malik Yusef Jones & LaNeah Menzies", "Genre" : "Hip-Hop/Rap", "DiscCount" : 1, "PlayDateUTC" : [  2013,  10,  2,  15,  1,  21 ], "FileFolderCount" : 5, "ArtworkCount" : 1, "Artist" : "Kanye West", "PlayDate" : NumberLong("3468304881"), "Album" : "808s & Heartbreak", "Size" : 11287767, "albumkey" : "album:808sheartbreak", "SkipCount" : 2, "TrackCount" : 12, "LibraryFolderCount" : 1, "DateAdded" : [  2012,  8,  4,  2,  14,  55 ], "SampleRate" : 44100, "Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/808s%20&%20Heartbreak/05%20Love%20Lockdown.m4a", "PersistentID" : "875A4FE29ECEE9BD", "DiscNumber" : 1, "TotalTime" : 270306, "Name" : "Love Lockdown", "SortAlbum" : "808s & Heartbreak", "DateModified" : [  2012,  8,  4,  2,  8,  12 ], "SortArtist" : "Kanye West", "BitRate" : 320, "artistkey" : "artist:kanyewest", "ReleaseDate" : ISODate("2008-11-23T17:00:00Z") }
+{ "_id" : "track:39f6fc04c3a8fc22", "PlayCount" : 2, "AlbumArtist" : "Kanye West", "SkipDate" : [  2013,  8,  5,  18,  57,  5 ], "TrackType" : "File", "TrackID" : 564, "type" : "track", "Kind" : "AAC audio file", "Year" : 2008, "TrackNumber" : 6, "Composer" : "Kanye West, Patrick Reynolds, Scott Mescudi, Dexter Mills & Jeff Bhasker", "Genre" : "Hip-Hop/Rap", "DiscCount" : 1, "PlayDateUTC" : [  2013,  10,  2,  15,  8,  42 ], "FileFolderCount" : 5, "ArtworkCount" : 1, "Artist" : "Kanye West", "PlayDate" : NumberLong("3468305322"), "Album" : "808s & Heartbreak", "Size" : 11496442, "albumkey" : "album:808sheartbreak", "SkipCount" : 1, "TrackCount" : 12, "LibraryFolderCount" : 1, "DateAdded" : [  2012,  8,  4,  2,  14,  55 ], "SampleRate" : 44100, "Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/808s%20&%20Heartbreak/06%20Paranoid%20(Feat.%20Mr.%20Hudson).m4a", "PersistentID" : "39F6FC04C3A8FC22", "DiscNumber" : 1, "TotalTime" : 277906, "Name" : "Paranoid (Feat. Mr. Hudson)", "SortAlbum" : "808s & Heartbreak", "DateModified" : [  2012,  8,  4,  2,  6,  6 ], "SortArtist" : "Kanye West", "BitRate" : 320, "artistkey" : "artist:kanyewest", "ReleaseDate" : ISODate("2008-11-23T17:00:00Z") }
+{ "_id" : "track:4d9d6f2c2c00eab5", "PlayCount" : 1, "AlbumArtist" : "Kanye West", "TrackType" : "File", "TrackID" : 566, "type" : "track", "Kind" : "AAC audio file", "Year" : 2008, "TrackNumber" : 7, "Composer" : "Kanye West, Jenny-Bea Englishman, Malik Yusef Jones, Dexter Mills, Scott Mescudi, Anthony Williams, Jeff Bhasker, Faheem Najm, Jay Jenkins & Patrick Doyle", "Genre" : "Hip-Hop/Rap", "DiscCount" : 1, "PlayDateUTC" : [  2013,  10,  0,  22,  30,  6 ], "FileFolderCount" : 5, "ArtworkCount" : 1, "Artist" : "Kanye West", "PlayDate" : NumberLong("3466344606"), "Album" : "808s & Heartbreak", "Size" : 11350058, "albumkey" : "album:808sheartbreak", "TrackCount" : 12, "LibraryFolderCount" : 1, "DateAdded" : [  2012,  8,  4,  2,  14,  55 ], "SampleRate" : 44100, "Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/808s%20&%20Heartbreak/07%20RoboCop.m4a", "PersistentID" : "4D9D6F2C2C00EAB5", "DiscNumber" : 1, "TotalTime" : 274360, "Name" : "RoboCop", "SortAlbum" : "808s & Heartbreak", "DateModified" : [  2012,  8,  4,  2,  6,  12 ], "SortArtist" : "Kanye West", "BitRate" : 320, "artistkey" : "artist:kanyewest", "ReleaseDate" : ISODate("2008-11-23T17:00:00Z") }
+{ "_id" : "track:6ac60d5064445829", "PlayCount" : 1, "AlbumArtist" : "Kanye West", "SkipDate" : [  2013,  10,  2,  15,  11,  52 ], "TrackType" : "File", "TrackID" : 568, "type" : "track", "Kind" : "AAC audio file", "Year" : 2008, "TrackNumber" : 8, "Composer" : "Kanye West, Jenny-Bea Englishman, Anthony Williams & Benjamin McIldowie", "Genre" : "Hip-Hop/Rap", "DiscCount" : 1, "PlayDateUTC" : [  2013,  10,  0,  22,  33,  16 ], "FileFolderCount" : 5, "ArtworkCount" : 1, "Artist" : "Kanye West", "PlayDate" : NumberLong("3466344796"), "Album" : "808s & Heartbreak", "Size" : 7880420, "albumkey" : "album:808sheartbreak", "SkipCount" : 1, "TrackCount" : 12, "LibraryFolderCount" : 1, "DateAdded" : [  2012,  8,  4,  2,  14,  55 ], "SampleRate" : 44100, "Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/808s%20&%20Heartbreak/08%20Street%20Lights.m4a", "PersistentID" : "6AC60D5064445829", "DiscNumber" : 1, "TotalTime" : 189906, "Name" : "Street Lights", "SortAlbum" : "808s & Heartbreak", "DateModified" : [  2012,  8,  4,  2,  6,  10 ], "SortArtist" : "Kanye West", "BitRate" : 320, "artistkey" : "artist:kanyewest", "ReleaseDate" : ISODate("2008-11-23T17:00:00Z") }
+{ "_id" : "track:f35ac1efb25d86b2", "PlayCount" : 1, "AlbumArtist" : "Kanye West", "TrackType" : "File", "TrackID" : 570, "type" : "track", "Kind" : "AAC audio file", "Year" : 2008, "TrackNumber" : 9, "Composer" : "Kanye West & George Bass", "Genre" : "Hip-Hop/Rap", "DiscCount" : 1, "PlayDateUTC" : [  2013,  10,  0,  22,  37,  14 ], "FileFolderCount" : 5, "ArtworkCount" : 1, "Artist" : "Kanye West", "PlayDate" : NumberLong("3466345034"), "Album" : "808s & Heartbreak", "Size" : 9820787, "albumkey" : "album:808sheartbreak", "TrackCount" : 12, "LibraryFolderCount" : 1, "DateAdded" : [  2012,  8,  4,  2,  14,  55 ], "SampleRate" : 44100, "Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/808s%20&%20Heartbreak/09%20Bad%20News.m4a", "PersistentID" : "F35AC1EFB25D86B2", "DiscNumber" : 1, "TotalTime" : 238800, "Name" : "Bad News", "SortAlbum" : "808s & Heartbreak", "DateModified" : [  2012,  8,  4,  2,  4,  15 ], "SortArtist" : "Kanye West", "BitRate" : 320, "artistkey" : "artist:kanyewest", "ReleaseDate" : ISODate("2008-11-23T17:00:00Z") }
+{ "_id" : "track:fe51122d18c6c87e", "PlayCount" : 1, "AlbumArtist" : "Kanye West", "TrackType" : "File", "TrackID" : 572, "type" : "track", "Kind" : "AAC audio file", "Year" : 2008, "TrackNumber" : 10, "Composer" : "Kanye West, NO I.D., Jeff Bhasker & Dwayne Carter", "Genre" : "Hip-Hop/Rap", "DiscCount" : 1, "PlayDateUTC" : [  2013,  10,  0,  22,  41,  32 ], "FileFolderCount" : 5, "ArtworkCount" : 1, "Artist" : "Kanye West", "PlayDate" : NumberLong("3466345292"), "Album" : "808s & Heartbreak", "Size" : 10649215, "albumkey" : "album:808sheartbreak", "TrackCount" : 12, "LibraryFolderCount" : 1, "DateAdded" : [  2012,  8,  4,  2,  14,  55 ], "SampleRate" : 44100, "Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/808s%20&%20Heartbreak/10%20See%20You%20In%20My%20Nightmares%20(Feat.%20Lil%20Wayne).m4a", "PersistentID" : "FE51122D18C6C87E", "DiscNumber" : 1, "TotalTime" : 258093, "Name" : "See You In My Nightmares (Feat. Lil Wayne)", "SortAlbum" : "808s & Heartbreak", "DateModified" : [  2012,  8,  4,  2,  6,  20 ], "SortArtist" : "Kanye West", "BitRate" : 320, "artistkey" : "artist:kanyewest", "ReleaseDate" : ISODate("2008-11-23T17:00:00Z") }
+{ "_id" : "track:b4d8063fd7e1cd18", "PlayCount" : 1, "AlbumArtist" : "Kanye West", "SkipDate" : [  2013,  7,  4,  14,  7,  36 ], "TrackType" : "File", "TrackID" : 574, "type" : "track", "Kind" : "AAC audio file", "Year" : 2008, "TrackNumber" : 11, "Composer" : "Kanye West, Roland Orzabal & NO I.D.", "Genre" : "Hip-Hop/Rap", "DiscCount" : 1, "PlayDateUTC" : [  2013,  10,  0,  22,  44,  17 ], "FileFolderCount" : 5, "ArtworkCount" : 1, "Artist" : "Kanye West", "PlayDate" : NumberLong("3466345457"), "Album" : "808s & Heartbreak", "Size" : 6845520, "albumkey" : "album:808sheartbreak", "SkipCount" : 1, "TrackCount" : 12, "LibraryFolderCount" : 1, "DateAdded" : [  2012,  8,  4,  2,  14,  55 ], "SampleRate" : 44100, "Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/808s%20&%20Heartbreak/11%20Coldest%20Winter.m4a", "PersistentID" : "B4D8063FD7E1CD18", "DiscNumber" : 1, "TotalTime" : 164360, "Name" : "Coldest Winter", "SortAlbum" : "808s & Heartbreak", "DateModified" : [  2012,  8,  4,  2,  6,  20 ], "SortArtist" : "Kanye West", "BitRate" : 320, "artistkey" : "artist:kanyewest", "ReleaseDate" : ISODate("2008-11-23T17:00:00Z") }
+{ "_id" : "track:a36985799471266e", "AlbumArtist" : "Kanye West", "TrackType" : "File", "TrackID" : 576, "type" : "track", "Kind" : "AAC audio file", "Year" : 2008, "TrackNumber" : 12, "Composer" : "Kanye West", "Genre" : "Hip-Hop/Rap", "DiscCount" : 1, "FileFolderCount" : 5, "ArtworkCount" : 1, "Artist" : "Kanye West", "Album" : "808s & Heartbreak", "Size" : 14842024, "albumkey" : "album:808sheartbreak", "TrackCount" : 12, "LibraryFolderCount" : 1, "DateAdded" : [  2012,  8,  4,  2,  14,  55 ], "SampleRate" : 44100, "Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/808s%20&%20Heartbreak/12%20Pinocchio%20Story%20(Freestyle%20Live%20From%20Singapore).m4a", "PersistentID" : "A36985799471266E", "DiscNumber" : 1, "TotalTime" : 361600, "Name" : "Pinocchio Story (Freestyle Live From Singapore)", "SortAlbum" : "808s & Heartbreak", "DateModified" : [  2012,  8,  4,  2,  6,  24 ], "SortArtist" : "Kanye West", "BitRate" : 320, "artistkey" : "artist:kanyewest", "ReleaseDate" : ISODate("2008-11-23T17:00:00Z") }
+{ "_id" : "track:aa694bd2b5b3b51b", "PlayCount" : 8, "AlbumArtist" : "Kanye West", "SkipDate" : [  2013,  4,  4,  18,  56,  33 ], "TrackType" : "File", "TrackID" : 578, "type" : "track", "Kind" : "AAC audio file", "Year" : 2007, "TrackNumber" : 1, "Composer" : "Bernie Taupin, Elton John & Kanye West", "Genre" : "Hip-Hop/Rap", "DiscCount" : 1, "PlayDateUTC" : [  2013,  7,  1,  22,  44,  50 ], "FileFolderCount" : 5, "ArtworkCount" : 1, "Artist" : "Kanye West", "PlayDate" : NumberLong("3459779090"), "Album" : "Graduation (Deluxe Edition)", "Size" : 8037462, "albumkey" : "album:graduationdeluxeedition", "SkipCount" : 2, "TrackCount" : 15, "LibraryFolderCount" : 1, "DateAdded" : [  2012,  8,  4,  2,  14,  55 ], "SampleRate" : 44100, "Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/Graduation%20(Deluxe%20Edition)/01%20Good%20Morning.m4a", "PersistentID" : "AA694BD2B5B3B51B", "DiscNumber" : 1, "TotalTime" : 195093, "Name" : "Good Morning", "SortAlbum" : "Graduation (Deluxe Edition)", "DateModified" : [  2012,  8,  4,  2,  7,  27 ], "SortArtist" : "Kanye West", "BitRate" : 320, "artistkey" : "artist:kanyewest", "ReleaseDate" : ISODate("2007-09-10T16:00:00Z") }
+{ "_id" : "track:5d7365e9e0efd414", "PlayCount" : 9, "AlbumArtist" : "Kanye West", "SkipDate" : [  2013,  8,  4,  17,  4,  0 ], "TrackType" : "File", "TrackID" : 580, "type" : "track", "Kind" : "AAC audio file", "Year" : 2007, "TrackNumber" : 2, "Composer" : "D. Fagen & Walter Becker", "Genre" : "Hip-Hop/Rap", "DiscCount" : 1, "PlayDateUTC" : [  2013,  7,  1,  22,  47,  38 ], "FileFolderCount" : 5, "ArtworkCount" : 1, "Artist" : "Kanye West", "PlayDate" : NumberLong("3459779258"), "Album" : "Graduation (Deluxe Edition)", "Size" : 6999793, "albumkey" : "album:graduationdeluxeedition", "SkipCount" : 4, "TrackCount" : 15, "LibraryFolderCount" : 1, "DateAdded" : [  2012,  8,  4,  2,  14,  55 ], "SampleRate" : 44100, "Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/Graduation%20(Deluxe%20Edition)/02%20Champion.m4a", "PersistentID" : "5D7365E9E0EFD414", "DiscNumber" : 1, "TotalTime" : 167600, "Name" : "Champion", "SortAlbum" : "Graduation (Deluxe Edition)", "DateModified" : [  2012,  8,  4,  2,  8,  28 ], "SortArtist" : "Kanye West", "BitRate" : 320, "artistkey" : "artist:kanyewest", "ReleaseDate" : ISODate("2007-09-10T16:00:00Z") }
+{ "_id" : "track:769e0265ca94014a", "PlayCount" : 5, "AlbumArtist" : "Kanye West", "SkipDate" : [  2013,  7,  1,  22,  47,  41 ], "TrackType" : "File", "TrackID" : 582, "type" : "track", "Kind" : "AAC audio file", "Year" : 2007, "TrackNumber" : 3, "Composer" : "Edwin Birdsong, Guy Manuel Homen-Cristo, Kanye West & Thomas Banghalter", "Genre" : "Hip-Hop/Rap", "DiscCount" : 1, "PlayDateUTC" : [  2013,  2,  3,  5,  47,  36 ], "FileFolderCount" : 5, "ArtworkCount" : 1, "Artist" : "Kanye West", "PlayDate" : NumberLong("3445375656"), "Album" : "Graduation (Deluxe Edition)", "Size" : 12922222, "albumkey" : "album:graduationdeluxeedition", "SkipCount" : 2, "TrackCount" : 15, "LibraryFolderCount" : 1, "DateAdded" : [  2012,  8,  4,  2,  14,  55 ], "SampleRate" : 44100, "Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/Graduation%20(Deluxe%20Edition)/03%20Stronger.m4a", "PersistentID" : "769E0265CA94014A", "DiscNumber" : 1, "TotalTime" : 311866, "Name" : "Stronger", "SortAlbum" : "Graduation (Deluxe Edition)", "DateModified" : [  2012,  8,  4,  2,  8,  29 ], "SortArtist" : "Kanye West", "BitRate" : 320, "artistkey" : "artist:kanyewest", "ReleaseDate" : ISODate("2007-09-10T16:00:00Z") }
+{ "_id" : "track:597bd3bf4b4399f4", "PlayCount" : 5, "AlbumArtist" : "Kanye West", "SkipDate" : [  2013,  7,  1,  21,  46,  57 ], "TrackType" : "File", "TrackID" : 584, "type" : "track", "Kind" : "AAC audio file", "Year" : 2007, "TrackNumber" : 4, "Composer" : "Kanye West & Labi Siffre", "Genre" : "Hip-Hop/Rap", "DiscCount" : 1, "PlayDateUTC" : [  2013,  2,  3,  5,  51,  39 ], "FileFolderCount" : 5, "ArtworkCount" : 1, "Artist" : "Kanye West", "PlayDate" : NumberLong("3445375899"), "Album" : "Graduation (Deluxe Edition)", "Size" : 10095196, "albumkey" : "album:graduationdeluxeedition", "SkipCount" : 1, "TrackCount" : 15, "LibraryFolderCount" : 1, "DateAdded" : [  2012,  8,  4,  2,  14,  55 ], "SampleRate" : 44100, "Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/Graduation%20(Deluxe%20Edition)/04%20I%20Wonder.m4a", "PersistentID" : "597BD3BF4B4399F4", "DiscNumber" : 1, "TotalTime" : 243440, "Name" : "I Wonder", "SortAlbum" : "Graduation (Deluxe Edition)", "DateModified" : [  2012,  8,  4,  2,  7,  28 ], "SortArtist" : "Kanye West", "BitRate" : 320, "artistkey" : "artist:kanyewest", "ReleaseDate" : ISODate("2007-09-10T16:00:00Z") }
+{ "_id" : "track:88f73e37193670f9", "PlayCount" : 4, "AlbumArtist" : "Kanye West", "SkipDate" : [  2013,  8,  4,  17,  3,  52 ], "TrackType" : "File", "TrackID" : 586, "type" : "track", "Kind" : "AAC audio file", "Year" : 2007, "TrackNumber" : 5, "Composer" : "A. Davis, Faheem Najm, James Ingram, Kanye West & Quincy Jones", "Genre" : "Hip-Hop/Rap", "DiscCount" : 1, "PlayDateUTC" : [  2013,  2,  3,  6,  12,  18 ], "FileFolderCount" : 5, "ArtworkCount" : 1, "Artist" : "Kanye West", "PlayDate" : NumberLong("3445377138"), "Album" : "Graduation (Deluxe Edition)", "Size" : 8562967, "albumkey" : "album:graduationdeluxeedition", "Comments" : "(feat. T-Pain)", "SkipCount" : 2, "TrackCount" : 15, "LibraryFolderCount" : 1, "DateAdded" : [  2012,  8,  4,  2,  14,  55 ], "SampleRate" : 44100, "Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/Graduation%20(Deluxe%20Edition)/05%20Good%20Life%20(Feat.%20T-Pain).m4a", "PersistentID" : "88F73E37193670F9", "DiscNumber" : 1, "TotalTime" : 207000, "Name" : "Good Life (Feat. T-Pain)", "SortAlbum" : "Graduation (Deluxe Edition)", "DateModified" : [  2012,  8,  4,  2,  8,  28 ], "SortArtist" : "Kanye West", "BitRate" : 320, "artistkey" : "artist:kanyewest", "ReleaseDate" : ISODate("2007-09-10T16:00:00Z") }
+{ "_id" : "track:6efaac2b15d9a9fe", "PlayCount" : 3, "AlbumArtist" : "Kanye West", "SkipDate" : [  2012,  8,  0,  6,  20,  22 ], "TrackType" : "File", "TrackID" : 588, "type" : "track", "Kind" : "AAC audio file", "Year" : 2007, "TrackNumber" : 6, "Composer" : "A. Davis & K. West", "Genre" : "Hip-Hop/Rap", "DiscCount" : 1, "PlayDateUTC" : [  2012,  11,  5,  11,  46,  23 ], "FileFolderCount" : 5, "ArtworkCount" : 1, "Artist" : "Kanye West", "PlayDate" : NumberLong("3438312383"), "Album" : "Graduation (Deluxe Edition)", "Size" : 11192376, "albumkey" : "album:graduationdeluxeedition", "SkipCount" : 1, "TrackCount" : 15, "LibraryFolderCount" : 1, "DateAdded" : [  2012,  8,  4,  2,  14,  55 ], "SampleRate" : 44100, "Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/Graduation%20(Deluxe%20Edition)/06%20Can't%20Tell%20Me%20Nothing.m4a", "PersistentID" : "6EFAAC2B15D9A9FE", "DiscNumber" : 1, "TotalTime" : 271600, "Name" : "Can't Tell Me Nothing", "SortAlbum" : "Graduation (Deluxe Edition)", "DateModified" : [  2012,  8,  4,  2,  8,  29 ], "SortArtist" : "Kanye West", "BitRate" : 320, "artistkey" : "artist:kanyewest", "ReleaseDate" : ISODate("2007-09-10T16:00:00Z") }
+{ "_id" : "track:b94bcb06d77ed3b3", "PlayCount" : 1, "AlbumArtist" : "Kanye West", "SkipDate" : [  2013,  7,  3,  23,  28,  12 ], "TrackType" : "File", "TrackID" : 590, "type" : "track", "Kind" : "AAC audio file", "Year" : 2007, "TrackNumber" : 7, "Composer" : "D. Carter, D. Lamb & Kanye West", "Genre" : "Hip-Hop/Rap", "DiscCount" : 1, "PlayDateUTC" : [  2012,  8,  0,  17,  48,  29 ], "FileFolderCount" : 5, "ArtworkCount" : 1, "Artist" : "Kanye West", "PlayDate" : NumberLong("3431249309"), "Album" : "Graduation (Deluxe Edition)", "Size" : 8491536, "albumkey" : "album:graduationdeluxeedition", "SkipCount" : 2, "TrackCount" : 15, "LibraryFolderCount" : 1, "DateAdded" : [  2012,  8,  4,  2,  14,  55 ], "SampleRate" : 44100, "Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/Graduation%20(Deluxe%20Edition)/07%20Barry%20Bonds%20(Feat.%20Lil%20Wayne).m4a", "PersistentID" : "B94BCB06D77ED3B3", "DiscNumber" : 1, "TotalTime" : 204306, "Name" : "Barry Bonds (Feat. Lil Wayne)", "SortAlbum" : "Graduation (Deluxe Edition)", "DateModified" : [  2012,  8,  4,  2,  0,  18 ], "SortArtist" : "Kanye West", "BitRate" : 320, "artistkey" : "artist:kanyewest", "ReleaseDate" : ISODate("2007-09-10T16:00:00Z") }
+{ "_id" : "track:c96bd4cf74b666ab", "PlayCount" : 1, "AlbumArtist" : "Kanye West", "SkipDate" : [  2013,  7,  3,  23,  28,  15 ], "TrackType" : "File", "TrackID" : 592, "type" : "track", "Kind" : "AAC audio file", "Year" : 2007, "TrackNumber" : 8, "Composer" : "H. Schuering, I. Schmidt, J. Liebezeit, K. Suzuki, Kanye West & M. Karoli", "Genre" : "Hip-Hop/Rap", "DiscCount" : 1, "PlayDateUTC" : [  2012,  8,  0,  17,  53,  42 ], "FileFolderCount" : 5, "ArtworkCount" : 1, "Artist" : "Kanye West", "PlayDate" : NumberLong("3431249622"), "Album" : "Graduation (Deluxe Edition)", "Size" : 12965836, "albumkey" : "album:graduationdeluxeedition", "SkipCount" : 1, "TrackCount" : 15, "LibraryFolderCount" : 1, "DateAdded" : [  2012,  8,  4,  2,  14,  55 ], "SampleRate" : 44100, "Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/Graduation%20(Deluxe%20Edition)/08%20Drunk%20&%20Hot%20Girls%20(Feat.%20Mos%20Def).m4a", "PersistentID" : "C96BD4CF74B666AB", "DiscNumber" : 1, "TotalTime" : 313226, "Name" : "Drunk & Hot Girls (Feat. Mos Def)", "SortAlbum" : "Graduation (Deluxe Edition)", "DateModified" : [  2012,  8,  4,  2,  4,  54 ], "SortArtist" : "Kanye West", "BitRate" : 320, "artistkey" : "artist:kanyewest", "ReleaseDate" : ISODate("2007-09-10T16:00:00Z") }
+Type "it" for more
+> db.itunes.find({type:'track'}).pretty
+function (){
+    this._prettyShell = true;
+    return this;
+}
+> db.itunes.find({type:'track'}).pretty()
+{
+	"_id" : "track:fffd409ed41fbc54",
+	"PlayCount" : 2,
+	"AlbumArtist" : "Kanye West",
+	"SkipDate" : [
+		2013,
+		8,
+		6,
+		19,
+		51,
+		43
+	],
+	"TrackType" : "File",
+	"TrackID" : 554,
+	"type" : "track",
+	"Kind" : "AAC audio file",
+	"Year" : 2008,
+	"TrackNumber" : 1,
+	"Composer" : "Kanye West, Dexter Mills, Jeff Bhasker & Jay Jenkins",
+	"Genre" : "Hip-Hop/Rap",
+	"DiscCount" : 1,
+	"PlayDateUTC" : [
+		2013,
+		8,
+		5,
+		20,
+		20,
+		47
+	],
+	"FileFolderCount" : 5,
+	"ArtworkCount" : 1,
+	"Artist" : "Kanye West",
+	"PlayDate" : NumberLong("3461930447"),
+	"Album" : "808s & Heartbreak",
+	"Size" : 15652304,
+	"albumkey" : "album:808sheartbreak",
+	"SkipCount" : 2,
+	"TrackCount" : 12,
+	"LibraryFolderCount" : 1,
+	"DateAdded" : [
+		2012,
+		8,
+		4,
+		2,
+		14,
+		55
+	],
+	"SampleRate" : 44100,
+	"Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/808s%20&%20Heartbreak/01%20Say%20You%20Will.m4a",
+	"PersistentID" : "FFFD409ED41FBC54",
+	"DiscNumber" : 1,
+	"TotalTime" : 377600,
+	"Name" : "Say You Will",
+	"SortAlbum" : "808s & Heartbreak",
+	"DateModified" : [
+		2012,
+		8,
+		4,
+		2,
+		6,
+		10
+	],
+	"SortArtist" : "Kanye West",
+	"BitRate" : 320,
+	"artistkey" : "artist:kanyewest",
+	"ReleaseDate" : ISODate("2008-11-23T17:00:00Z")
+}
+{
+	"_id" : "track:65425689df9a2518",
+	"AlbumArtist" : "Kanye West",
+	"TrackType" : "File",
+	"TrackID" : 556,
+	"type" : "track",
+	"Kind" : "AAC audio file",
+	"Year" : 2008,
+	"TrackNumber" : 2,
+	"Composer" : "Kanye West, Jeff Bhasker, Patrick Reynolds & Scott Mescudi",
+	"Genre" : "Hip-Hop/Rap",
+	"DiscCount" : 1,
+	"FileFolderCount" : 5,
+	"ArtworkCount" : 1,
+	"Artist" : "Kanye West",
+	"Album" : "808s & Heartbreak",
+	"Size" : 10851715,
+	"albumkey" : "album:808sheartbreak",
+	"TrackCount" : 12,
+	"LibraryFolderCount" : 1,
+	"DateAdded" : [
+		2012,
+		8,
+		4,
+		2,
+		14,
+		55
+	],
+	"SampleRate" : 44100,
+	"Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/808s%20&%20Heartbreak/02%20Welcome%20To%20Heartbreak%20(Feat.%20Kid%20Cudi).m4a",
+	"PersistentID" : "65425689DF9A2518",
+	"DiscNumber" : 1,
+	"TotalTime" : 262933,
+	"Name" : "Welcome To Heartbreak (Feat. Kid Cudi)",
+	"SortAlbum" : "808s & Heartbreak",
+	"DateModified" : [
+		2012,
+		8,
+		4,
+		2,
+		5,
+		10
+	],
+	"SortArtist" : "Kanye West",
+	"BitRate" : 320,
+	"artistkey" : "artist:kanyewest",
+	"ReleaseDate" : ISODate("2008-11-23T17:00:00Z")
+}
+{
+	"_id" : "track:0aa9a8640c998a35",
+	"PlayCount" : 4,
+	"AlbumArtist" : "Kanye West",
+	"SkipDate" : [
+		2013,
+		8,
+		6,
+		19,
+		51,
+		47
+	],
+	"TrackType" : "File",
+	"TrackID" : 558,
+	"type" : "track",
+	"Kind" : "AAC audio file",
+	"Year" : 2008,
+	"TrackNumber" : 3,
+	"Composer" : "Kanye West, NO I.D., Scott Mescudi & Malik Yusef Jones",
+	"Genre" : "Hip-Hop/Rap",
+	"DiscCount" : 1,
+	"PlayDateUTC" : [
+		2013,
+		10,
+		2,
+		14,
+		52,
+		53
+	],
+	"FileFolderCount" : 5,
+	"ArtworkCount" : 1,
+	"Artist" : "Kanye West",
+	"PlayDate" : NumberLong("3468304373"),
+	"Album" : "808s & Heartbreak",
+	"Size" : 8793570,
+	"albumkey" : "album:808sheartbreak",
+	"SkipCount" : 1,
+	"TrackCount" : 12,
+	"LibraryFolderCount" : 1,
+	"DateAdded" : [
+		2012,
+		8,
+		4,
+		2,
+		14,
+		55
+	],
+	"SampleRate" : 44100,
+	"Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/808s%20&%20Heartbreak/03%20Heartless.m4a",
+	"PersistentID" : "0AA9A8640C998A35",
+	"DiscNumber" : 1,
+	"TotalTime" : 211000,
+	"Name" : "Heartless",
+	"SortAlbum" : "808s & Heartbreak",
+	"DateModified" : [
+		2012,
+		8,
+		4,
+		2,
+		5,
+		8
+	],
+	"SortArtist" : "Kanye West",
+	"BitRate" : 320,
+	"artistkey" : "artist:kanyewest",
+	"ReleaseDate" : ISODate("2008-11-23T17:00:00Z")
+}
+{
+	"_id" : "track:37356f89e5250390",
+	"PlayCount" : 5,
+	"AlbumArtist" : "Kanye West",
+	"TrackType" : "File",
+	"TrackID" : 560,
+	"type" : "track",
+	"Kind" : "AAC audio file",
+	"Year" : 2008,
+	"TrackNumber" : 4,
+	"Composer" : "Kanye West, Malik Yusef Jones, Dexter Mills, Jeff Bhasker & Jay Jenkins",
+	"Genre" : "Hip-Hop/Rap",
+	"DiscCount" : 1,
+	"PlayDateUTC" : [
+		2013,
+		10,
+		2,
+		14,
+		56,
+		51
+	],
+	"FileFolderCount" : 5,
+	"ArtworkCount" : 1,
+	"Artist" : "Kanye West",
+	"PlayDate" : NumberLong("3468304611"),
+	"Album" : "808s & Heartbreak",
+	"Size" : 9846618,
+	"albumkey" : "album:808sheartbreak",
+	"TrackCount" : 12,
+	"LibraryFolderCount" : 1,
+	"DateAdded" : [
+		2012,
+		8,
+		4,
+		2,
+		14,
+		55
+	],
+	"SampleRate" : 44100,
+	"Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/808s%20&%20Heartbreak/04%20Amazing%20(Feat.%20Young%20Jeezy).m4a",
+	"PersistentID" : "37356F89E5250390",
+	"DiscNumber" : 1,
+	"TotalTime" : 238333,
+	"Name" : "Amazing (Feat. Young Jeezy)",
+	"SortAlbum" : "808s & Heartbreak",
+	"DateModified" : [
+		2012,
+		8,
+		4,
+		1,
+		59,
+		12
+	],
+	"SortArtist" : "Kanye West",
+	"BitRate" : 320,
+	"artistkey" : "artist:kanyewest",
+	"ReleaseDate" : ISODate("2008-11-23T17:00:00Z")
+}
+{
+	"_id" : "track:875a4fe29ecee9bd",
+	"PlayCount" : 5,
+	"AlbumArtist" : "Kanye West",
+	"SkipDate" : [
+		2013,
+		10,
+		0,
+		22,
+		8,
+		54
+	],
+	"TrackType" : "File",
+	"TrackID" : 562,
+	"type" : "track",
+	"Kind" : "AAC audio file",
+	"Year" : 2008,
+	"TrackNumber" : 5,
+	"Composer" : "Kanye West, Jeff Bhasker, Jenny-Bea Englishman, Malik Yusef Jones & LaNeah Menzies",
+	"Genre" : "Hip-Hop/Rap",
+	"DiscCount" : 1,
+	"PlayDateUTC" : [
+		2013,
+		10,
+		2,
+		15,
+		1,
+		21
+	],
+	"FileFolderCount" : 5,
+	"ArtworkCount" : 1,
+	"Artist" : "Kanye West",
+	"PlayDate" : NumberLong("3468304881"),
+	"Album" : "808s & Heartbreak",
+	"Size" : 11287767,
+	"albumkey" : "album:808sheartbreak",
+	"SkipCount" : 2,
+	"TrackCount" : 12,
+	"LibraryFolderCount" : 1,
+	"DateAdded" : [
+		2012,
+		8,
+		4,
+		2,
+		14,
+		55
+	],
+	"SampleRate" : 44100,
+	"Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/808s%20&%20Heartbreak/05%20Love%20Lockdown.m4a",
+	"PersistentID" : "875A4FE29ECEE9BD",
+	"DiscNumber" : 1,
+	"TotalTime" : 270306,
+	"Name" : "Love Lockdown",
+	"SortAlbum" : "808s & Heartbreak",
+	"DateModified" : [
+		2012,
+		8,
+		4,
+		2,
+		8,
+		12
+	],
+	"SortArtist" : "Kanye West",
+	"BitRate" : 320,
+	"artistkey" : "artist:kanyewest",
+	"ReleaseDate" : ISODate("2008-11-23T17:00:00Z")
+}
+{
+	"_id" : "track:39f6fc04c3a8fc22",
+	"PlayCount" : 2,
+	"AlbumArtist" : "Kanye West",
+	"SkipDate" : [
+		2013,
+		8,
+		5,
+		18,
+		57,
+		5
+	],
+	"TrackType" : "File",
+	"TrackID" : 564,
+	"type" : "track",
+	"Kind" : "AAC audio file",
+	"Year" : 2008,
+	"TrackNumber" : 6,
+	"Composer" : "Kanye West, Patrick Reynolds, Scott Mescudi, Dexter Mills & Jeff Bhasker",
+	"Genre" : "Hip-Hop/Rap",
+	"DiscCount" : 1,
+	"PlayDateUTC" : [
+		2013,
+		10,
+		2,
+		15,
+		8,
+		42
+	],
+	"FileFolderCount" : 5,
+	"ArtworkCount" : 1,
+	"Artist" : "Kanye West",
+	"PlayDate" : NumberLong("3468305322"),
+	"Album" : "808s & Heartbreak",
+	"Size" : 11496442,
+	"albumkey" : "album:808sheartbreak",
+	"SkipCount" : 1,
+	"TrackCount" : 12,
+	"LibraryFolderCount" : 1,
+	"DateAdded" : [
+		2012,
+		8,
+		4,
+		2,
+		14,
+		55
+	],
+	"SampleRate" : 44100,
+	"Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/808s%20&%20Heartbreak/06%20Paranoid%20(Feat.%20Mr.%20Hudson).m4a",
+	"PersistentID" : "39F6FC04C3A8FC22",
+	"DiscNumber" : 1,
+	"TotalTime" : 277906,
+	"Name" : "Paranoid (Feat. Mr. Hudson)",
+	"SortAlbum" : "808s & Heartbreak",
+	"DateModified" : [
+		2012,
+		8,
+		4,
+		2,
+		6,
+		6
+	],
+	"SortArtist" : "Kanye West",
+	"BitRate" : 320,
+	"artistkey" : "artist:kanyewest",
+	"ReleaseDate" : ISODate("2008-11-23T17:00:00Z")
+}
+{
+	"_id" : "track:4d9d6f2c2c00eab5",
+	"PlayCount" : 1,
+	"AlbumArtist" : "Kanye West",
+	"TrackType" : "File",
+	"TrackID" : 566,
+	"type" : "track",
+	"Kind" : "AAC audio file",
+	"Year" : 2008,
+	"TrackNumber" : 7,
+	"Composer" : "Kanye West, Jenny-Bea Englishman, Malik Yusef Jones, Dexter Mills, Scott Mescudi, Anthony Williams, Jeff Bhasker, Faheem Najm, Jay Jenkins & Patrick Doyle",
+	"Genre" : "Hip-Hop/Rap",
+	"DiscCount" : 1,
+	"PlayDateUTC" : [
+		2013,
+		10,
+		0,
+		22,
+		30,
+		6
+	],
+	"FileFolderCount" : 5,
+	"ArtworkCount" : 1,
+	"Artist" : "Kanye West",
+	"PlayDate" : NumberLong("3466344606"),
+	"Album" : "808s & Heartbreak",
+	"Size" : 11350058,
+	"albumkey" : "album:808sheartbreak",
+	"TrackCount" : 12,
+	"LibraryFolderCount" : 1,
+	"DateAdded" : [
+		2012,
+		8,
+		4,
+		2,
+		14,
+		55
+	],
+	"SampleRate" : 44100,
+	"Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/808s%20&%20Heartbreak/07%20RoboCop.m4a",
+	"PersistentID" : "4D9D6F2C2C00EAB5",
+	"DiscNumber" : 1,
+	"TotalTime" : 274360,
+	"Name" : "RoboCop",
+	"SortAlbum" : "808s & Heartbreak",
+	"DateModified" : [
+		2012,
+		8,
+		4,
+		2,
+		6,
+		12
+	],
+	"SortArtist" : "Kanye West",
+	"BitRate" : 320,
+	"artistkey" : "artist:kanyewest",
+	"ReleaseDate" : ISODate("2008-11-23T17:00:00Z")
+}
+{
+	"_id" : "track:6ac60d5064445829",
+	"PlayCount" : 1,
+	"AlbumArtist" : "Kanye West",
+	"SkipDate" : [
+		2013,
+		10,
+		2,
+		15,
+		11,
+		52
+	],
+	"TrackType" : "File",
+	"TrackID" : 568,
+	"type" : "track",
+	"Kind" : "AAC audio file",
+	"Year" : 2008,
+	"TrackNumber" : 8,
+	"Composer" : "Kanye West, Jenny-Bea Englishman, Anthony Williams & Benjamin McIldowie",
+	"Genre" : "Hip-Hop/Rap",
+	"DiscCount" : 1,
+	"PlayDateUTC" : [
+		2013,
+		10,
+		0,
+		22,
+		33,
+		16
+	],
+	"FileFolderCount" : 5,
+	"ArtworkCount" : 1,
+	"Artist" : "Kanye West",
+	"PlayDate" : NumberLong("3466344796"),
+	"Album" : "808s & Heartbreak",
+	"Size" : 7880420,
+	"albumkey" : "album:808sheartbreak",
+	"SkipCount" : 1,
+	"TrackCount" : 12,
+	"LibraryFolderCount" : 1,
+	"DateAdded" : [
+		2012,
+		8,
+		4,
+		2,
+		14,
+		55
+	],
+	"SampleRate" : 44100,
+	"Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/808s%20&%20Heartbreak/08%20Street%20Lights.m4a",
+	"PersistentID" : "6AC60D5064445829",
+	"DiscNumber" : 1,
+	"TotalTime" : 189906,
+	"Name" : "Street Lights",
+	"SortAlbum" : "808s & Heartbreak",
+	"DateModified" : [
+		2012,
+		8,
+		4,
+		2,
+		6,
+		10
+	],
+	"SortArtist" : "Kanye West",
+	"BitRate" : 320,
+	"artistkey" : "artist:kanyewest",
+	"ReleaseDate" : ISODate("2008-11-23T17:00:00Z")
+}
+{
+	"_id" : "track:f35ac1efb25d86b2",
+	"PlayCount" : 1,
+	"AlbumArtist" : "Kanye West",
+	"TrackType" : "File",
+	"TrackID" : 570,
+	"type" : "track",
+	"Kind" : "AAC audio file",
+	"Year" : 2008,
+	"TrackNumber" : 9,
+	"Composer" : "Kanye West & George Bass",
+	"Genre" : "Hip-Hop/Rap",
+	"DiscCount" : 1,
+	"PlayDateUTC" : [
+		2013,
+		10,
+		0,
+		22,
+		37,
+		14
+	],
+	"FileFolderCount" : 5,
+	"ArtworkCount" : 1,
+	"Artist" : "Kanye West",
+	"PlayDate" : NumberLong("3466345034"),
+	"Album" : "808s & Heartbreak",
+	"Size" : 9820787,
+	"albumkey" : "album:808sheartbreak",
+	"TrackCount" : 12,
+	"LibraryFolderCount" : 1,
+	"DateAdded" : [
+		2012,
+		8,
+		4,
+		2,
+		14,
+		55
+	],
+	"SampleRate" : 44100,
+	"Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/808s%20&%20Heartbreak/09%20Bad%20News.m4a",
+	"PersistentID" : "F35AC1EFB25D86B2",
+	"DiscNumber" : 1,
+	"TotalTime" : 238800,
+	"Name" : "Bad News",
+	"SortAlbum" : "808s & Heartbreak",
+	"DateModified" : [
+		2012,
+		8,
+		4,
+		2,
+		4,
+		15
+	],
+	"SortArtist" : "Kanye West",
+	"BitRate" : 320,
+	"artistkey" : "artist:kanyewest",
+	"ReleaseDate" : ISODate("2008-11-23T17:00:00Z")
+}
+{
+	"_id" : "track:fe51122d18c6c87e",
+	"PlayCount" : 1,
+	"AlbumArtist" : "Kanye West",
+	"TrackType" : "File",
+	"TrackID" : 572,
+	"type" : "track",
+	"Kind" : "AAC audio file",
+	"Year" : 2008,
+	"TrackNumber" : 10,
+	"Composer" : "Kanye West, NO I.D., Jeff Bhasker & Dwayne Carter",
+	"Genre" : "Hip-Hop/Rap",
+	"DiscCount" : 1,
+	"PlayDateUTC" : [
+		2013,
+		10,
+		0,
+		22,
+		41,
+		32
+	],
+	"FileFolderCount" : 5,
+	"ArtworkCount" : 1,
+	"Artist" : "Kanye West",
+	"PlayDate" : NumberLong("3466345292"),
+	"Album" : "808s & Heartbreak",
+	"Size" : 10649215,
+	"albumkey" : "album:808sheartbreak",
+	"TrackCount" : 12,
+	"LibraryFolderCount" : 1,
+	"DateAdded" : [
+		2012,
+		8,
+		4,
+		2,
+		14,
+		55
+	],
+	"SampleRate" : 44100,
+	"Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/808s%20&%20Heartbreak/10%20See%20You%20In%20My%20Nightmares%20(Feat.%20Lil%20Wayne).m4a",
+	"PersistentID" : "FE51122D18C6C87E",
+	"DiscNumber" : 1,
+	"TotalTime" : 258093,
+	"Name" : "See You In My Nightmares (Feat. Lil Wayne)",
+	"SortAlbum" : "808s & Heartbreak",
+	"DateModified" : [
+		2012,
+		8,
+		4,
+		2,
+		6,
+		20
+	],
+	"SortArtist" : "Kanye West",
+	"BitRate" : 320,
+	"artistkey" : "artist:kanyewest",
+	"ReleaseDate" : ISODate("2008-11-23T17:00:00Z")
+}
+{
+	"_id" : "track:b4d8063fd7e1cd18",
+	"PlayCount" : 1,
+	"AlbumArtist" : "Kanye West",
+	"SkipDate" : [
+		2013,
+		7,
+		4,
+		14,
+		7,
+		36
+	],
+	"TrackType" : "File",
+	"TrackID" : 574,
+	"type" : "track",
+	"Kind" : "AAC audio file",
+	"Year" : 2008,
+	"TrackNumber" : 11,
+	"Composer" : "Kanye West, Roland Orzabal & NO I.D.",
+	"Genre" : "Hip-Hop/Rap",
+	"DiscCount" : 1,
+	"PlayDateUTC" : [
+		2013,
+		10,
+		0,
+		22,
+		44,
+		17
+	],
+	"FileFolderCount" : 5,
+	"ArtworkCount" : 1,
+	"Artist" : "Kanye West",
+	"PlayDate" : NumberLong("3466345457"),
+	"Album" : "808s & Heartbreak",
+	"Size" : 6845520,
+	"albumkey" : "album:808sheartbreak",
+	"SkipCount" : 1,
+	"TrackCount" : 12,
+	"LibraryFolderCount" : 1,
+	"DateAdded" : [
+		2012,
+		8,
+		4,
+		2,
+		14,
+		55
+	],
+	"SampleRate" : 44100,
+	"Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/808s%20&%20Heartbreak/11%20Coldest%20Winter.m4a",
+	"PersistentID" : "B4D8063FD7E1CD18",
+	"DiscNumber" : 1,
+	"TotalTime" : 164360,
+	"Name" : "Coldest Winter",
+	"SortAlbum" : "808s & Heartbreak",
+	"DateModified" : [
+		2012,
+		8,
+		4,
+		2,
+		6,
+		20
+	],
+	"SortArtist" : "Kanye West",
+	"BitRate" : 320,
+	"artistkey" : "artist:kanyewest",
+	"ReleaseDate" : ISODate("2008-11-23T17:00:00Z")
+}
+{
+	"_id" : "track:a36985799471266e",
+	"AlbumArtist" : "Kanye West",
+	"TrackType" : "File",
+	"TrackID" : 576,
+	"type" : "track",
+	"Kind" : "AAC audio file",
+	"Year" : 2008,
+	"TrackNumber" : 12,
+	"Composer" : "Kanye West",
+	"Genre" : "Hip-Hop/Rap",
+	"DiscCount" : 1,
+	"FileFolderCount" : 5,
+	"ArtworkCount" : 1,
+	"Artist" : "Kanye West",
+	"Album" : "808s & Heartbreak",
+	"Size" : 14842024,
+	"albumkey" : "album:808sheartbreak",
+	"TrackCount" : 12,
+	"LibraryFolderCount" : 1,
+	"DateAdded" : [
+		2012,
+		8,
+		4,
+		2,
+		14,
+		55
+	],
+	"SampleRate" : 44100,
+	"Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/808s%20&%20Heartbreak/12%20Pinocchio%20Story%20(Freestyle%20Live%20From%20Singapore).m4a",
+	"PersistentID" : "A36985799471266E",
+	"DiscNumber" : 1,
+	"TotalTime" : 361600,
+	"Name" : "Pinocchio Story (Freestyle Live From Singapore)",
+	"SortAlbum" : "808s & Heartbreak",
+	"DateModified" : [
+		2012,
+		8,
+		4,
+		2,
+		6,
+		24
+	],
+	"SortArtist" : "Kanye West",
+	"BitRate" : 320,
+	"artistkey" : "artist:kanyewest",
+	"ReleaseDate" : ISODate("2008-11-23T17:00:00Z")
+}
+{
+	"_id" : "track:aa694bd2b5b3b51b",
+	"PlayCount" : 8,
+	"AlbumArtist" : "Kanye West",
+	"SkipDate" : [
+		2013,
+		4,
+		4,
+		18,
+		56,
+		33
+	],
+	"TrackType" : "File",
+	"TrackID" : 578,
+	"type" : "track",
+	"Kind" : "AAC audio file",
+	"Year" : 2007,
+	"TrackNumber" : 1,
+	"Composer" : "Bernie Taupin, Elton John & Kanye West",
+	"Genre" : "Hip-Hop/Rap",
+	"DiscCount" : 1,
+	"PlayDateUTC" : [
+		2013,
+		7,
+		1,
+		22,
+		44,
+		50
+	],
+	"FileFolderCount" : 5,
+	"ArtworkCount" : 1,
+	"Artist" : "Kanye West",
+	"PlayDate" : NumberLong("3459779090"),
+	"Album" : "Graduation (Deluxe Edition)",
+	"Size" : 8037462,
+	"albumkey" : "album:graduationdeluxeedition",
+	"SkipCount" : 2,
+	"TrackCount" : 15,
+	"LibraryFolderCount" : 1,
+	"DateAdded" : [
+		2012,
+		8,
+		4,
+		2,
+		14,
+		55
+	],
+	"SampleRate" : 44100,
+	"Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/Graduation%20(Deluxe%20Edition)/01%20Good%20Morning.m4a",
+	"PersistentID" : "AA694BD2B5B3B51B",
+	"DiscNumber" : 1,
+	"TotalTime" : 195093,
+	"Name" : "Good Morning",
+	"SortAlbum" : "Graduation (Deluxe Edition)",
+	"DateModified" : [
+		2012,
+		8,
+		4,
+		2,
+		7,
+		27
+	],
+	"SortArtist" : "Kanye West",
+	"BitRate" : 320,
+	"artistkey" : "artist:kanyewest",
+	"ReleaseDate" : ISODate("2007-09-10T16:00:00Z")
+}
+{
+	"_id" : "track:5d7365e9e0efd414",
+	"PlayCount" : 9,
+	"AlbumArtist" : "Kanye West",
+	"SkipDate" : [
+		2013,
+		8,
+		4,
+		17,
+		4,
+		0
+	],
+	"TrackType" : "File",
+	"TrackID" : 580,
+	"type" : "track",
+	"Kind" : "AAC audio file",
+	"Year" : 2007,
+	"TrackNumber" : 2,
+	"Composer" : "D. Fagen & Walter Becker",
+	"Genre" : "Hip-Hop/Rap",
+	"DiscCount" : 1,
+	"PlayDateUTC" : [
+		2013,
+		7,
+		1,
+		22,
+		47,
+		38
+	],
+	"FileFolderCount" : 5,
+	"ArtworkCount" : 1,
+	"Artist" : "Kanye West",
+	"PlayDate" : NumberLong("3459779258"),
+	"Album" : "Graduation (Deluxe Edition)",
+	"Size" : 6999793,
+	"albumkey" : "album:graduationdeluxeedition",
+	"SkipCount" : 4,
+	"TrackCount" : 15,
+	"LibraryFolderCount" : 1,
+	"DateAdded" : [
+		2012,
+		8,
+		4,
+		2,
+		14,
+		55
+	],
+	"SampleRate" : 44100,
+	"Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/Graduation%20(Deluxe%20Edition)/02%20Champion.m4a",
+	"PersistentID" : "5D7365E9E0EFD414",
+	"DiscNumber" : 1,
+	"TotalTime" : 167600,
+	"Name" : "Champion",
+	"SortAlbum" : "Graduation (Deluxe Edition)",
+	"DateModified" : [
+		2012,
+		8,
+		4,
+		2,
+		8,
+		28
+	],
+	"SortArtist" : "Kanye West",
+	"BitRate" : 320,
+	"artistkey" : "artist:kanyewest",
+	"ReleaseDate" : ISODate("2007-09-10T16:00:00Z")
+}
+{
+	"_id" : "track:769e0265ca94014a",
+	"PlayCount" : 5,
+	"AlbumArtist" : "Kanye West",
+	"SkipDate" : [
+		2013,
+		7,
+		1,
+		22,
+		47,
+		41
+	],
+	"TrackType" : "File",
+	"TrackID" : 582,
+	"type" : "track",
+	"Kind" : "AAC audio file",
+	"Year" : 2007,
+	"TrackNumber" : 3,
+	"Composer" : "Edwin Birdsong, Guy Manuel Homen-Cristo, Kanye West & Thomas Banghalter",
+	"Genre" : "Hip-Hop/Rap",
+	"DiscCount" : 1,
+	"PlayDateUTC" : [
+		2013,
+		2,
+		3,
+		5,
+		47,
+		36
+	],
+	"FileFolderCount" : 5,
+	"ArtworkCount" : 1,
+	"Artist" : "Kanye West",
+	"PlayDate" : NumberLong("3445375656"),
+	"Album" : "Graduation (Deluxe Edition)",
+	"Size" : 12922222,
+	"albumkey" : "album:graduationdeluxeedition",
+	"SkipCount" : 2,
+	"TrackCount" : 15,
+	"LibraryFolderCount" : 1,
+	"DateAdded" : [
+		2012,
+		8,
+		4,
+		2,
+		14,
+		55
+	],
+	"SampleRate" : 44100,
+	"Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/Graduation%20(Deluxe%20Edition)/03%20Stronger.m4a",
+	"PersistentID" : "769E0265CA94014A",
+	"DiscNumber" : 1,
+	"TotalTime" : 311866,
+	"Name" : "Stronger",
+	"SortAlbum" : "Graduation (Deluxe Edition)",
+	"DateModified" : [
+		2012,
+		8,
+		4,
+		2,
+		8,
+		29
+	],
+	"SortArtist" : "Kanye West",
+	"BitRate" : 320,
+	"artistkey" : "artist:kanyewest",
+	"ReleaseDate" : ISODate("2007-09-10T16:00:00Z")
+}
+{
+	"_id" : "track:597bd3bf4b4399f4",
+	"PlayCount" : 5,
+	"AlbumArtist" : "Kanye West",
+	"SkipDate" : [
+		2013,
+		7,
+		1,
+		21,
+		46,
+		57
+	],
+	"TrackType" : "File",
+	"TrackID" : 584,
+	"type" : "track",
+	"Kind" : "AAC audio file",
+	"Year" : 2007,
+	"TrackNumber" : 4,
+	"Composer" : "Kanye West & Labi Siffre",
+	"Genre" : "Hip-Hop/Rap",
+	"DiscCount" : 1,
+	"PlayDateUTC" : [
+		2013,
+		2,
+		3,
+		5,
+		51,
+		39
+	],
+	"FileFolderCount" : 5,
+	"ArtworkCount" : 1,
+	"Artist" : "Kanye West",
+	"PlayDate" : NumberLong("3445375899"),
+	"Album" : "Graduation (Deluxe Edition)",
+	"Size" : 10095196,
+	"albumkey" : "album:graduationdeluxeedition",
+	"SkipCount" : 1,
+	"TrackCount" : 15,
+	"LibraryFolderCount" : 1,
+	"DateAdded" : [
+		2012,
+		8,
+		4,
+		2,
+		14,
+		55
+	],
+	"SampleRate" : 44100,
+	"Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/Graduation%20(Deluxe%20Edition)/04%20I%20Wonder.m4a",
+	"PersistentID" : "597BD3BF4B4399F4",
+	"DiscNumber" : 1,
+	"TotalTime" : 243440,
+	"Name" : "I Wonder",
+	"SortAlbum" : "Graduation (Deluxe Edition)",
+	"DateModified" : [
+		2012,
+		8,
+		4,
+		2,
+		7,
+		28
+	],
+	"SortArtist" : "Kanye West",
+	"BitRate" : 320,
+	"artistkey" : "artist:kanyewest",
+	"ReleaseDate" : ISODate("2007-09-10T16:00:00Z")
+}
+{
+	"_id" : "track:88f73e37193670f9",
+	"PlayCount" : 4,
+	"AlbumArtist" : "Kanye West",
+	"SkipDate" : [
+		2013,
+		8,
+		4,
+		17,
+		3,
+		52
+	],
+	"TrackType" : "File",
+	"TrackID" : 586,
+	"type" : "track",
+	"Kind" : "AAC audio file",
+	"Year" : 2007,
+	"TrackNumber" : 5,
+	"Composer" : "A. Davis, Faheem Najm, James Ingram, Kanye West & Quincy Jones",
+	"Genre" : "Hip-Hop/Rap",
+	"DiscCount" : 1,
+	"PlayDateUTC" : [
+		2013,
+		2,
+		3,
+		6,
+		12,
+		18
+	],
+	"FileFolderCount" : 5,
+	"ArtworkCount" : 1,
+	"Artist" : "Kanye West",
+	"PlayDate" : NumberLong("3445377138"),
+	"Album" : "Graduation (Deluxe Edition)",
+	"Size" : 8562967,
+	"albumkey" : "album:graduationdeluxeedition",
+	"Comments" : "(feat. T-Pain)",
+	"SkipCount" : 2,
+	"TrackCount" : 15,
+	"LibraryFolderCount" : 1,
+	"DateAdded" : [
+		2012,
+		8,
+		4,
+		2,
+		14,
+		55
+	],
+	"SampleRate" : 44100,
+	"Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/Graduation%20(Deluxe%20Edition)/05%20Good%20Life%20(Feat.%20T-Pain).m4a",
+	"PersistentID" : "88F73E37193670F9",
+	"DiscNumber" : 1,
+	"TotalTime" : 207000,
+	"Name" : "Good Life (Feat. T-Pain)",
+	"SortAlbum" : "Graduation (Deluxe Edition)",
+	"DateModified" : [
+		2012,
+		8,
+		4,
+		2,
+		8,
+		28
+	],
+	"SortArtist" : "Kanye West",
+	"BitRate" : 320,
+	"artistkey" : "artist:kanyewest",
+	"ReleaseDate" : ISODate("2007-09-10T16:00:00Z")
+}
+{
+	"_id" : "track:6efaac2b15d9a9fe",
+	"PlayCount" : 3,
+	"AlbumArtist" : "Kanye West",
+	"SkipDate" : [
+		2012,
+		8,
+		0,
+		6,
+		20,
+		22
+	],
+	"TrackType" : "File",
+	"TrackID" : 588,
+	"type" : "track",
+	"Kind" : "AAC audio file",
+	"Year" : 2007,
+	"TrackNumber" : 6,
+	"Composer" : "A. Davis & K. West",
+	"Genre" : "Hip-Hop/Rap",
+	"DiscCount" : 1,
+	"PlayDateUTC" : [
+		2012,
+		11,
+		5,
+		11,
+		46,
+		23
+	],
+	"FileFolderCount" : 5,
+	"ArtworkCount" : 1,
+	"Artist" : "Kanye West",
+	"PlayDate" : NumberLong("3438312383"),
+	"Album" : "Graduation (Deluxe Edition)",
+	"Size" : 11192376,
+	"albumkey" : "album:graduationdeluxeedition",
+	"SkipCount" : 1,
+	"TrackCount" : 15,
+	"LibraryFolderCount" : 1,
+	"DateAdded" : [
+		2012,
+		8,
+		4,
+		2,
+		14,
+		55
+	],
+	"SampleRate" : 44100,
+	"Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/Graduation%20(Deluxe%20Edition)/06%20Can't%20Tell%20Me%20Nothing.m4a",
+	"PersistentID" : "6EFAAC2B15D9A9FE",
+	"DiscNumber" : 1,
+	"TotalTime" : 271600,
+	"Name" : "Can't Tell Me Nothing",
+	"SortAlbum" : "Graduation (Deluxe Edition)",
+	"DateModified" : [
+		2012,
+		8,
+		4,
+		2,
+		8,
+		29
+	],
+	"SortArtist" : "Kanye West",
+	"BitRate" : 320,
+	"artistkey" : "artist:kanyewest",
+	"ReleaseDate" : ISODate("2007-09-10T16:00:00Z")
+}
+{
+	"_id" : "track:b94bcb06d77ed3b3",
+	"PlayCount" : 1,
+	"AlbumArtist" : "Kanye West",
+	"SkipDate" : [
+		2013,
+		7,
+		3,
+		23,
+		28,
+		12
+	],
+	"TrackType" : "File",
+	"TrackID" : 590,
+	"type" : "track",
+	"Kind" : "AAC audio file",
+	"Year" : 2007,
+	"TrackNumber" : 7,
+	"Composer" : "D. Carter, D. Lamb & Kanye West",
+	"Genre" : "Hip-Hop/Rap",
+	"DiscCount" : 1,
+	"PlayDateUTC" : [
+		2012,
+		8,
+		0,
+		17,
+		48,
+		29
+	],
+	"FileFolderCount" : 5,
+	"ArtworkCount" : 1,
+	"Artist" : "Kanye West",
+	"PlayDate" : NumberLong("3431249309"),
+	"Album" : "Graduation (Deluxe Edition)",
+	"Size" : 8491536,
+	"albumkey" : "album:graduationdeluxeedition",
+	"SkipCount" : 2,
+	"TrackCount" : 15,
+	"LibraryFolderCount" : 1,
+	"DateAdded" : [
+		2012,
+		8,
+		4,
+		2,
+		14,
+		55
+	],
+	"SampleRate" : 44100,
+	"Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/Graduation%20(Deluxe%20Edition)/07%20Barry%20Bonds%20(Feat.%20Lil%20Wayne).m4a",
+	"PersistentID" : "B94BCB06D77ED3B3",
+	"DiscNumber" : 1,
+	"TotalTime" : 204306,
+	"Name" : "Barry Bonds (Feat. Lil Wayne)",
+	"SortAlbum" : "Graduation (Deluxe Edition)",
+	"DateModified" : [
+		2012,
+		8,
+		4,
+		2,
+		0,
+		18
+	],
+	"SortArtist" : "Kanye West",
+	"BitRate" : 320,
+	"artistkey" : "artist:kanyewest",
+	"ReleaseDate" : ISODate("2007-09-10T16:00:00Z")
+}
+{
+	"_id" : "track:c96bd4cf74b666ab",
+	"PlayCount" : 1,
+	"AlbumArtist" : "Kanye West",
+	"SkipDate" : [
+		2013,
+		7,
+		3,
+		23,
+		28,
+		15
+	],
+	"TrackType" : "File",
+	"TrackID" : 592,
+	"type" : "track",
+	"Kind" : "AAC audio file",
+	"Year" : 2007,
+	"TrackNumber" : 8,
+	"Composer" : "H. Schuering, I. Schmidt, J. Liebezeit, K. Suzuki, Kanye West & M. Karoli",
+	"Genre" : "Hip-Hop/Rap",
+	"DiscCount" : 1,
+	"PlayDateUTC" : [
+		2012,
+		8,
+		0,
+		17,
+		53,
+		42
+	],
+	"FileFolderCount" : 5,
+	"ArtworkCount" : 1,
+	"Artist" : "Kanye West",
+	"PlayDate" : NumberLong("3431249622"),
+	"Album" : "Graduation (Deluxe Edition)",
+	"Size" : 12965836,
+	"albumkey" : "album:graduationdeluxeedition",
+	"SkipCount" : 1,
+	"TrackCount" : 15,
+	"LibraryFolderCount" : 1,
+	"DateAdded" : [
+		2012,
+		8,
+		4,
+		2,
+		14,
+		55
+	],
+	"SampleRate" : 44100,
+	"Location" : "file://localhost/Users/russellbenton/Music/iTunes/iTunes%20Media/Music/Kanye%20West/Graduation%20(Deluxe%20Edition)/08%20Drunk%20&%20Hot%20Girls%20(Feat.%20Mos%20Def).m4a",
+	"PersistentID" : "C96BD4CF74B666AB",
+	"DiscNumber" : 1,
+	"TotalTime" : 313226,
+	"Name" : "Drunk & Hot Girls (Feat. Mos Def)",
+	"SortAlbum" : "Graduation (Deluxe Edition)",
+	"DateModified" : [
+		2012,
+		8,
+		4,
+		2,
+		4,
+		54
+	],
+	"SortArtist" : "Kanye West",
+	"BitRate" : 320,
+	"artistkey" : "artist:kanyewest",
+	"ReleaseDate" : ISODate("2007-09-10T16:00:00Z")
+}
+Type "it" for more
+> 

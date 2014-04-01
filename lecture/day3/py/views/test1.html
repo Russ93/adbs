@@ -1,0 +1,12 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+
+<script>
+	$.ajax({
+		type:'GET',
+		url: 'http://localhost:8080/ret?id=Test Me',
+		dataType: 'json',
+		success: function(data){ 
+			console.log(data);
+		}
+	})
+</script>
